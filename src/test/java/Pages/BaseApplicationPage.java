@@ -12,6 +12,5 @@ public class BaseApplicationPage {
 
     public BaseApplicationPage(WebDriver driver){
         this.driver = driver;
-
     }
 }
