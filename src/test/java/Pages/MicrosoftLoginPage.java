@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.testng.Assert.assertTrue;
+
 public class MicrosoftLoginPage extends BaseApplicationPage {
 
     public MicrosoftLoginPage(WebDriver driver) {
@@ -12,25 +14,22 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
         PageFactory.initElements(driver, this);
     }
 
-    String Green = "\u001B[32m";
-    String Defauld = "\u001B[0m";
-
     // Elements
 
     @FindBy(name = "loginfmt")
-    static WebElement emailInput;
+    private WebElement emailInput;
 
     @FindBy(xpath = "//input[@id='idSIButton9']")
-    static  WebElement nextButton;
+    private  WebElement nextButton;
 
     @FindBy(id = "i0118")
-    static WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(xpath = "//input[@id='idSIButton9']")
-    static WebElement signInButton;
+    private WebElement signInButton;
 
     @FindBy(xpath = "//input[@id='idBtn_Back']")
-    static WebElement noButton;
+    private WebElement noButton;
 
     // Methods
 
@@ -50,5 +49,9 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
         passwordInput.sendKeys("");
         signInButton.click();
         noButton.click();
+
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        Thread.sleep(1000);
+        assertTrue(dashboardPage.isDisplayed());
     }
 }

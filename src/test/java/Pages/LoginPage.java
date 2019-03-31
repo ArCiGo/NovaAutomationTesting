@@ -26,16 +26,16 @@ public class LoginPage extends BaseApplicationPage {
 
     // Methods
 
+    public void goTo() {
+        driver.navigate().to("https://nova.itexico.com/login");
+    }
+
     public boolean isLoaded() {
         try {
             return loginForm.isDisplayed();
         } catch(Exception ex){
             return false;
         }
-    }
-
-    public void goTo() {
-        driver.navigate().to("https://nova.itexico.com/login");
     }
 
     public void login() throws Exception {
