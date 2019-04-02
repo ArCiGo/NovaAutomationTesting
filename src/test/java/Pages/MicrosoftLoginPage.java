@@ -11,7 +11,7 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
 
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+        //PageFactory.initElements(driver, this);
     }
 
     // Elements
