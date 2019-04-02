@@ -4,6 +4,7 @@ import AutomationResources.BrowserType;
 import AutomationResources.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
@@ -18,7 +19,7 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void cleanupAfterEveryTestMethod(){
         driver.close();
         driver.quit();
