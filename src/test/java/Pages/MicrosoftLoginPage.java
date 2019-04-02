@@ -49,9 +49,5 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
         passwordInput.sendKeys("");
         signInButton.click();
         noButton.click();
-
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        Thread.sleep(1000);
-        assertTrue(dashboardPage.isDisplayed());
     }
 }

@@ -15,12 +15,13 @@ public class DashboardTest extends BaseTest {
 
         loginPage.goTo();
         assertTrue(loginPage.isLoaded());
+
         loginPage.login();
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        System.out.println("Aquí debe validar si cargó la página");
+
         assertTrue(dashboardPage.isDisplayed());
         assertTrue(dashboardPage.isTodayButtonDisplayed(),
-                "No lo encontró");
+                "The element wasn't found");
     }
 }

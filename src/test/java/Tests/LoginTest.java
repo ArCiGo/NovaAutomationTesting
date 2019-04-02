@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.DashboardPage;
 import Pages.LoginPage;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,12 @@ public class LoginTest extends BaseTest {
 
         loginPage.goTo();
         assertTrue(loginPage.isLoaded());
+
         loginPage.login();
+
+        DashboardPage dashboardPage = new DashboardPage(driver);
+
+        Thread.sleep(1000);
+        assertTrue(dashboardPage.isDisplayed());
     }
 }
