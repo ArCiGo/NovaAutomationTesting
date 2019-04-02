@@ -4,7 +4,7 @@ import Pages.BaseApplicationPage;
 import Pages.DashboardPage;
 import Pages.LoginPage;
 import com.google.common.collect.ImmutableList;
-import jdk.nashorn.internal.ir.annotations.Immutable;
+import com.google.common.collect.ImmutableList;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,36 +19,30 @@ public class DashboardTest extends BaseTest {
     private void startLogin() throws Exception {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.goTo();
-
         assertTrue(loginPage.isLoaded());
-
         loginPage.login();
     }
 
-    @Test
+    @Test(groups = "Add activity")
     public void addActivity() throws Exception {
         startLogin();
-
         DashboardPage dashboardPage = new DashboardPage(driver);
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         assertTrue(dashboardPage.isDisplayed());
         assertTrue(dashboardPage.isTodayButtonDisplayed(),
                 "The element wasn't found");
     }
 
-    @Test
+    @Test(groups = "Calendar")
     public void getColsSizeOfCalendar() throws Exception {
         startLogin();
-
         DashboardPage dashboardPage = new DashboardPage(driver);
-
         Thread.sleep(2000);
-
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getCalendarColsSize(), 7);
     }
 
-    @Test
+    @Test(groups = "Calendar1")
     public void getDaysNameOfCalendar() throws Exception {
         List<String> expectedLabelsList = ImmutableList.of("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 

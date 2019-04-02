@@ -15,7 +15,8 @@ public class WebDriverFactory {
     }
 
     private WebDriver getChromeDriver(){
-        System.setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/chromedriver");
 
         ChromeDriver chromeDriver = new ChromeDriver();
         return chromeDriver;

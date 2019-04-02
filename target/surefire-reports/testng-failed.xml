@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [tests]" verbose="0">
+  <test name="Test_3(failed)">
+    <groups>
+      <run>
+        <include name="Calendar"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Tests.LoginTest">
+        <methods>
+          <include name="setupForEverySingleMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+        </methods>
+      </class> <!-- Tests.LoginTest -->
+      <class name="Tests.DashboardTest">
+        <methods>
+          <include name="getDaysNameOfCalendar"/>
+          <include name="setupForEverySingleMethod"/>
+          <include name="setupForEverySingleMethod"/>
+          <include name="setupForEverySingleMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+        </methods>
+      </class> <!-- Tests.DashboardTest -->
+    </classes>
+  </test> <!-- Test_3(failed) -->
+  <test name="Test_4(failed)">
+    <groups>
+      <run>
+        <include name="Calendar"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Tests.LoginTest">
+        <methods>
+          <include name="setupForEverySingleMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+        </methods>
+      </class> <!-- Tests.LoginTest -->
+      <class name="Tests.DashboardTest">
+        <methods>
+          <include name="getDaysNameOfCalendar"/>
+          <include name="setupForEverySingleMethod"/>
+          <include name="setupForEverySingleMethod"/>
+          <include name="setupForEverySingleMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+          <include name="cleanupAfterEveryTestMethod"/>
+        </methods>
+      </class> <!-- Tests.DashboardTest -->
+    </classes>
+  </test> <!-- Test_4(failed) -->
+</suite> <!-- Failed suite [tests] -->

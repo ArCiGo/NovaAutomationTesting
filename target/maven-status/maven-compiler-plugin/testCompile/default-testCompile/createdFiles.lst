@@ -1,0 +1,14 @@
+Tests/ExampleTest.class
+Pages/DashboardPage.class
+Pages/HomePage.class
+Tests/BaseTest.class
+Pages/MicrosoftLoginPage.class
+AutomationResources/BrowserType.class
+Pages/BaseApplicationPage.class
+Tests/LoginTest.class
+Tests/DashboardTest.class
+AutomationResources/WebDriverFactory.class
+AutomationResources/WebDriverFactory$1.class
+Pages/ContactUsPage.class
+Pages/LoginPage.class
+Pages/HeaderSection.class

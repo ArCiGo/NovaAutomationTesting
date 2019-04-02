@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-04-02T21:16:26Z" name="tests" finished-at="2019-04-02T21:17:23Z" duration-ms="56569">
+    <groups>
+      <group name="Calendar1">
+        <method signature="DashboardTest.getDaysNameOfCalendar()[pri:0, instance:Tests.DashboardTest@5f71c76a]" name="getDaysNameOfCalendar" class="Tests.DashboardTest"/>
+      </group> <!-- Calendar1 -->
+      <group name="Add activity">
+        <method signature="DashboardTest.addActivity()[pri:0, instance:Tests.DashboardTest@5427c60c]" name="addActivity" class="Tests.DashboardTest"/>
+      </group> <!-- Add activity -->
+      <group name="Calendar">
+        <method signature="DashboardTest.getColsSizeOfCalendar()[pri:0, instance:Tests.DashboardTest@44f75083]" name="getColsSizeOfCalendar" class="Tests.DashboardTest"/>
+      </group> <!-- Calendar -->
+      <group name="Login">
+        <method signature="LoginTest.LoginWithValidCredentials()[pri:0, instance:Tests.LoginTest@2641e737]" name="LoginWithValidCredentials" class="Tests.LoginTest"/>
+      </group> <!-- Login -->
+    </groups>
+    <test started-at="2019-04-02T21:16:26Z" name="Test_1" finished-at="2019-04-02T21:16:39Z" duration-ms="12751">
+      <class name="Tests.LoginTest">
+        <test-method is-config="true" signature="setupForEverySingleMethod()[pri:0, instance:Tests.LoginTest@2641e737]" started-at="2019-04-02T15:16:26Z" name="setupForEverySingleMethod" finished-at="2019-04-02T15:16:29Z" duration-ms="2141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupForEverySingleMethod -->
+        <test-method signature="LoginWithValidCredentials()[pri:0, instance:Tests.LoginTest@2641e737]" started-at="2019-04-02T15:16:29Z" name="LoginWithValidCredentials" finished-at="2019-04-02T15:16:39Z" duration-ms="10413" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginWithValidCredentials -->
+        <test-method is-config="true" signature="cleanupAfterEveryTestMethod()[pri:0, instance:Tests.LoginTest@2641e737]" started-at="2019-04-02T15:16:39Z" name="cleanupAfterEveryTestMethod" finished-at="2019-04-02T15:16:39Z" duration-ms="182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanupAfterEveryTestMethod -->
+      </class> <!-- Tests.LoginTest -->
+    </test> <!-- Test_1 -->
+    <test started-at="2019-04-02T21:16:39Z" name="Test_2" finished-at="2019-04-02T21:16:54Z" duration-ms="14306">
+      <class name="Tests.DashboardTest">
+        <test-method is-config="true" signature="setupForEverySingleMethod()[pri:0, instance:Tests.DashboardTest@5427c60c]" started-at="2019-04-02T15:16:39Z" name="setupForEverySingleMethod" finished-at="2019-04-02T15:16:41Z" duration-ms="1450" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupForEverySingleMethod -->
+        <test-method signature="addActivity()[pri:0, instance:Tests.DashboardTest@5427c60c]" started-at="2019-04-02T15:16:41Z" name="addActivity" finished-at="2019-04-02T15:16:53Z" duration-ms="12700" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addActivity -->
+        <test-method is-config="true" signature="cleanupAfterEveryTestMethod()[pri:0, instance:Tests.DashboardTest@5427c60c]" started-at="2019-04-02T15:16:53Z" name="cleanupAfterEveryTestMethod" finished-at="2019-04-02T15:16:54Z" duration-ms="155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanupAfterEveryTestMethod -->
+      </class> <!-- Tests.DashboardTest -->
+    </test> <!-- Test_2 -->
+    <test started-at="2019-04-02T21:16:54Z" name="Test_3" finished-at="2019-04-02T21:17:05Z" duration-ms="10991">
+      <class name="Tests.DashboardTest">
+        <test-method is-config="true" signature="setupForEverySingleMethod()[pri:0, instance:Tests.DashboardTest@44f75083]" started-at="2019-04-02T15:16:54Z" name="setupForEverySingleMethod" finished-at="2019-04-02T15:16:55Z" duration-ms="1520" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupForEverySingleMethod -->
+        <test-method signature="getColsSizeOfCalendar()[pri:0, instance:Tests.DashboardTest@44f75083]" started-at="2019-04-02T15:16:55Z" name="getColsSizeOfCalendar" finished-at="2019-04-02T15:17:04Z" duration-ms="9315" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getColsSizeOfCalendar -->
+        <test-method is-config="true" signature="cleanupAfterEveryTestMethod()[pri:0, instance:Tests.DashboardTest@44f75083]" started-at="2019-04-02T15:17:04Z" name="cleanupAfterEveryTestMethod" finished-at="2019-04-02T15:17:05Z" duration-ms="154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanupAfterEveryTestMethod -->
+      </class> <!-- Tests.DashboardTest -->
+    </test> <!-- Test_3 -->
+    <test started-at="2019-04-02T21:17:05Z" name="Test_4" finished-at="2019-04-02T21:17:23Z" duration-ms="18422">
+      <class name="Tests.DashboardTest">
+        <test-method is-config="true" signature="setupForEverySingleMethod()[pri:0, instance:Tests.DashboardTest@5f71c76a]" started-at="2019-04-02T15:17:05Z" name="setupForEverySingleMethod" finished-at="2019-04-02T15:17:06Z" duration-ms="1433" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupForEverySingleMethod -->
+        <test-method signature="getDaysNameOfCalendar()[pri:0, instance:Tests.DashboardTest@5f71c76a]" started-at="2019-04-02T15:17:06Z" name="getDaysNameOfCalendar" finished-at="2019-04-02T15:17:23Z" duration-ms="16819" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getDaysNameOfCalendar -->
+        <test-method is-config="true" signature="cleanupAfterEveryTestMethod()[pri:0, instance:Tests.DashboardTest@5f71c76a]" started-at="2019-04-02T15:17:23Z" name="cleanupAfterEveryTestMethod" finished-at="2019-04-02T15:17:23Z" duration-ms="167" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanupAfterEveryTestMethod -->
+      </class> <!-- Tests.DashboardTest -->
+    </test> <!-- Test_4 -->
+  </suite> <!-- tests -->
+</testng-results>

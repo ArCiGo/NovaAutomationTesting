@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +14,12 @@ public class DashboardPage extends BaseApplicationPage {
 
     public DashboardPage(WebDriver driver) {
         super(driver);
-        //PageFactory.initElements(driver, this);
     }
 
     // Elements
 
     @FindBy(xpath = "//div[@class='sc-kEYyzF dtAQRx']//img[@class='ui image']")
-    private WebElement iTexicoLogo;
+    public WebElement iTexicoLogo;
 
     @FindBy(xpath = "//button[@class='sc-Rmtcm ksuuFe']")
     private WebElement todayButton;

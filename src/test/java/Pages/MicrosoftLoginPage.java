@@ -4,14 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertTrue;
 
 public class MicrosoftLoginPage extends BaseApplicationPage {
 
+    private WebDriverWait wait;
+
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);
-        //PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, 2);
     }
 
     // Elements
@@ -42,11 +46,13 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
 
     public void fillForm() throws Exception {
         emailInput.clear();
-        emailInput.sendKeys("");
+        emailInput.sendKeys("armando.cifuentes@itexico.net");
         nextButton.click();
-        Thread.sleep(1000);
+
+        wait.until(ExpectedConditions.visibilityOf(passwordInput));
+
         passwordInput.clear();
-        passwordInput.sendKeys("");
+        passwordInput.sendKeys("Intheend12");
         signInButton.click();
         noButton.click();
     }

@@ -2,4 +2,47 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name = "tests" verbose = "1">
+    <test name = "Test_1">
+        <groups>
+            <run>
+                <include name="Login" />
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests.LoginTest" />
+        </classes>
+    </test>
+
+    <test name = "Test_2">
+        <groups>
+            <run>
+                <include name="Add activity" />
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests.DashboardTest" />
+        </classes>
+    </test>
+
+    <test name = "Test_3">
+        <groups>
+            <run>
+                <include name="Calendar" />
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests.DashboardTest" />
+        </classes>
+    </test>
+
+    <test name = "Test_4">
+        <groups>
+            <run>
+                <include name="Calendar1" />
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests.DashboardTest" />
+        </classes>
+    </test>
 </suite>
