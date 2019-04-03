@@ -119,3 +119,6 @@ hs_err_pid*
 # Browser drivers
 *.exe
 chromedriver
+
+# Surefire folder
+/target/surefire-reports

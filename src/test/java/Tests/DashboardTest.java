@@ -23,35 +23,30 @@ public class DashboardTest extends BaseTest {
         loginPage.login();
     }
 
-    @Test(groups = "Add activity")
+    @Test(groups = { "Add activity" })
     public void addActivity() throws Exception {
         startLogin();
         DashboardPage dashboardPage = new DashboardPage(driver);
-        Thread.sleep(5000);
         assertTrue(dashboardPage.isDisplayed());
         assertTrue(dashboardPage.isTodayButtonDisplayed(),
                 "The element wasn't found");
     }
 
-    @Test(groups = "Calendar")
+    @Test(groups = { "Calendar" })
     public void getColsSizeOfCalendar() throws Exception {
         startLogin();
         DashboardPage dashboardPage = new DashboardPage(driver);
-        Thread.sleep(2000);
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getCalendarColsSize(), 7);
     }
 
-    @Test(groups = "Calendar1")
+    @Test(groups = { "Calendar1" })
     public void getDaysNameOfCalendar() throws Exception {
         List<String> expectedLabelsList = ImmutableList.of("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
         startLogin();
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-
-        Thread.sleep(2000);
-
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getDaysOfTheWeek(), expectedLabelsList);
     }

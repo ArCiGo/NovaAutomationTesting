@@ -16,10 +16,12 @@ public class DashboardPage extends BaseApplicationPage {
         super(driver);
     }
 
+    private WebDriverWait wait = new WebDriverWait(driver, 5);
+
     // Elements
 
     @FindBy(xpath = "//div[@class='sc-kEYyzF dtAQRx']//img[@class='ui image']")
-    public WebElement iTexicoLogo;
+    private WebElement iTexicoLogo;
 
     @FindBy(xpath = "//button[@class='sc-Rmtcm ksuuFe']")
     private WebElement todayButton;
@@ -33,6 +35,8 @@ public class DashboardPage extends BaseApplicationPage {
     // Methods
 
     public boolean isDisplayed() {
+        wait.until(ExpectedConditions.visibilityOf(iTexicoLogo));
+
         try {
             return iTexicoLogo.isDisplayed();
         } catch (Exception ex) {
