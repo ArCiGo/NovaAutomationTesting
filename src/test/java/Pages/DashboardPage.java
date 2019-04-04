@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -58,6 +59,8 @@ public class DashboardPage extends BaseApplicationPage {
 
     public List<String> getDaysOfTheWeek() {
         List<String> daysOfWeekList = new ArrayList<>();
+
+        //wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//span[@class='sc-kTUwUJ MUBma']"), 7));
 
         for(WebElement item : calendarDaysOfWeek) {
             daysOfWeekList.add(item.getText());

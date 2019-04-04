@@ -5,13 +5,14 @@ import AutomationResources.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
     public WebDriver driver;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setupForEverySingleMethod() throws Exception {
         WebDriverFactory factory = new WebDriverFactory();
 
@@ -19,7 +20,7 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void cleanupAfterEveryTestMethod(){
         driver.close();
         driver.quit();

@@ -37,7 +37,7 @@ public class LoginPage extends BaseApplicationPage {
         }
     }
 
-    public void login() throws Exception {
+    public void login() {
         loginButtonMicrosoft.click();
 
         MicrosoftLoginPage microsoftLoginPage = new MicrosoftLoginPage(driver);

@@ -12,6 +12,8 @@ import static org.testng.Assert.assertTrue;
 public class MicrosoftLoginPage extends BaseApplicationPage {
 
     private WebDriverWait wait;
+    private String email = "armando.cifuentes@itexico.net";
+    private String password = "";
 
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);
@@ -44,15 +46,15 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
         return isLoaded;
     }
 
-    public void fillForm() throws Exception {
+    public void fillForm() {
         emailInput.clear();
-        emailInput.sendKeys("armando.cifuentes@itexico.net");
+        emailInput.sendKeys(email);
         nextButton.click();
 
         wait.until(ExpectedConditions.visibilityOf(passwordInput));
 
         passwordInput.clear();
-        passwordInput.sendKeys("Intheend12");
+        passwordInput.sendKeys(password);
         signInButton.click();
         noButton.click();
     }

@@ -6,6 +6,7 @@ import Pages.LoginPage;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -16,37 +17,35 @@ import static org.testng.Assert.assertTrue;
 
 public class DashboardTest extends BaseTest {
 
-    private void startLogin() throws Exception {
+    DashboardPage dashboardPage;
+
+    private void startLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.goTo();
         assertTrue(loginPage.isLoaded());
         loginPage.login();
+
+        dashboardPage = new DashboardPage(driver);
     }
 
     @Test(groups = { "Add activity" })
-    public void addActivity() throws Exception {
+    public void addActivity() {
         startLogin();
-        DashboardPage dashboardPage = new DashboardPage(driver);
         assertTrue(dashboardPage.isDisplayed());
         assertTrue(dashboardPage.isTodayButtonDisplayed(),
                 "The element wasn't found");
     }
 
-    @Test(groups = { "Calendar" })
-    public void getColsSizeOfCalendar() throws Exception {
-        startLogin();
-        DashboardPage dashboardPage = new DashboardPage(driver);
+    @Test(groups = { "Calendar" }, dependsOnMethods = { "addActivity" })
+    public void getColsSizeOfCalendar() {
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getCalendarColsSize(), 7);
     }
 
-    @Test(groups = { "Calendar1" })
-    public void getDaysNameOfCalendar() throws Exception {
+    @Test(groups = { "Calendar" }, dependsOnMethods = { "getColsSizeOfCalendar" })
+    public void getDaysNameOfCalendar() {
         List<String> expectedLabelsList = ImmutableList.of("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
-        startLogin();
-
-        DashboardPage dashboardPage = new DashboardPage(driver);
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getDaysOfTheWeek(), expectedLabelsList);
     }
