@@ -17,7 +17,7 @@ import static org.testng.Assert.assertTrue;
 
 public class DashboardTest extends BaseTest {
 
-    DashboardPage dashboardPage;
+    private DashboardPage dashboardPage;
 
     private void startLogin() {
         LoginPage loginPage = new LoginPage(driver);
