@@ -32,8 +32,7 @@ public class DashboardTest extends BaseTest {
     public void addActivity() {
         startLogin();
         assertTrue(dashboardPage.isDisplayed());
-        assertTrue(dashboardPage.isTodayButtonDisplayed(),
-                "The element wasn't found");
+        dashboardPage.addActivity();
     }
 
     @Test(groups = { "Calendar" }, dependsOnMethods = { "addActivity" })
@@ -48,5 +47,12 @@ public class DashboardTest extends BaseTest {
 
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getDaysOfTheWeek(), expectedLabelsList);
+    }
+
+    @Test(groups = { "Calendar "})
+    public void getCalendarMonthView() {
+        startLogin();
+        assertTrue(dashboardPage.isDisplayed());
+        dashboardPage.calendarMonthView();
     }
 }
