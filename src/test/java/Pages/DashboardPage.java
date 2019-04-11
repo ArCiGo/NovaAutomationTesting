@@ -75,6 +75,9 @@ public class DashboardPage extends BaseApplicationPage {
     @FindBy(xpath = "//div[@class='ui seven column grid day-grid-container sc-kjoXOD Wovug']")
     private WebElement gridMonthView;
 
+    @FindBy(xpath = "//span[@class='sc-ksYbfQ gLpyUQ']")
+    private List<WebElement> gridCells;
+
     // Methods
 
     public boolean isDisplayed() {
@@ -113,13 +116,13 @@ public class DashboardPage extends BaseApplicationPage {
         return daysOfWeekList;
     }
 
-    public void calendarMonthView() {
+    public int calendarMonthView() {
         //wait.until(ExpectedConditions.visibilityOf(monthButton));
-
         monthButton.click();
 
-        String aux = gridMonthView.getAttribute("gridmode");
-        System.out.println(aux);
+        assertEquals(gridMonthView.getAttribute("gridmode"), "MONTH");
+
+        return gridCells.size();
     }
 
     public void addActivity() {

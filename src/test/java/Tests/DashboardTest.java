@@ -49,10 +49,9 @@ public class DashboardTest extends BaseTest {
         assertEquals(dashboardPage.getDaysOfTheWeek(), expectedLabelsList);
     }
 
-    @Test(groups = { "Calendar "})
+    @Test(groups = { "Calendar" }, dependsOnMethods = { "getDaysNameOfCalendar" })
     public void getCalendarMonthView() {
-        startLogin();
         assertTrue(dashboardPage.isDisplayed());
-        dashboardPage.calendarMonthView();
+        assertEquals(dashboardPage.calendarMonthView(), 30);
     }
 }

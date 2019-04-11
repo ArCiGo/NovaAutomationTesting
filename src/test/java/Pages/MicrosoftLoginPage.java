@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 public class MicrosoftLoginPage extends BaseApplicationPage {
 
     private WebDriverWait wait;
-    private String email = "armando.cifuentes@itexico.net";
+    private String email = "armando.cifuentes@itexico.com";
     private String password = "";
 
     public MicrosoftLoginPage(WebDriver driver) {
