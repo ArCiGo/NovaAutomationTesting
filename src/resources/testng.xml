@@ -2,6 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name = "tests" verbose = "1">
+
+    <listeners>
+        <listener class-name="Tests.Listener" />
+    </listeners>
+
     <test name = "Test_1">
         <groups>
             <run>
