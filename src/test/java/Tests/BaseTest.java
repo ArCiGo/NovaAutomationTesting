@@ -7,6 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import utilities.Log;
 
 public class BaseTest {
 
@@ -14,6 +15,8 @@ public class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupForEverySingleMethod() throws Exception {
+        Log.startLog("I'm setupForEverySingleMethod() for every test");
+
         WebDriverFactory factory = new WebDriverFactory();
 
         driver = factory.create(BrowserType.Chrome);
@@ -24,5 +27,7 @@ public class BaseTest {
     public void cleanupAfterEveryTestMethod(){
         driver.close();
         driver.quit();
+
+        Log.endLog("I'm cleanupAfterEveryTestMethod()");
     }
 }
