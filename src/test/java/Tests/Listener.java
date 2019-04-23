@@ -34,12 +34,12 @@ public class Listener extends BaseTest implements ITestListener {
 
     @Override
     public void onStart(ITestContext iTestContext) {
-        Log.info("I am in onStart method " + iTestContext.getName());
+        Log.info("I am in onStart() method " + iTestContext.getName());
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-        Log.info("I am in onFinish method " + iTestContext.getName());
+        Log.info("I am in onFinish() method " + iTestContext.getName());
     }
 
     private static String getTestMethodName(ITestResult iTestResult) {

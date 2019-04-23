@@ -15,8 +15,6 @@ public class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupForEverySingleMethod() throws Exception {
-        Log.startLog("I'm setupForEverySingleMethod() for every test");
-
         WebDriverFactory factory = new WebDriverFactory();
 
         driver = factory.create(BrowserType.Chrome);
@@ -27,7 +25,5 @@ public class BaseTest {
     public void cleanupAfterEveryTestMethod(){
         driver.close();
         driver.quit();
-
-        Log.endLog("I'm cleanupAfterEveryTestMethod()");
     }
 }

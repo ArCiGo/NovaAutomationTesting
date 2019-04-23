@@ -42,4 +42,9 @@ public class Log {
     public static void debug (String message) {
         log.debug(message);
     }
+
+    //Trace Level logs
+    public static void trace (String message) {
+        log.trace(message);
+    }
 }

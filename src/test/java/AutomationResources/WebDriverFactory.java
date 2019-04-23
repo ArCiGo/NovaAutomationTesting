@@ -16,7 +16,7 @@ public class WebDriverFactory {
 
     private WebDriver getChromeDriver(){
         System.setProperty("webdriver.chrome.driver", System.getenv("ChromeDriver"));
-        //System.setProperty("webdriver.chrome.driver", "");
+        //System.setProperty("webdriver.chrome.driver", "/Users/arcigo/Downloads/chromedriver");
 
         ChromeDriver chromeDriver = new ChromeDriver();
         return chromeDriver;
