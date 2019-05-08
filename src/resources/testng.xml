@@ -4,7 +4,7 @@
 <suite name = "tests" verbose = "1">
 
     <listeners>
-        <listener class-name="Tests.Listener" />
+        <listener class-name="Listeners.Listener" />
     </listeners>
 
     <test name = "Test_1">
