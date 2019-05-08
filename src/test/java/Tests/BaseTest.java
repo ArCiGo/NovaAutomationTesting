@@ -15,6 +15,8 @@ public class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupForEverySingleMethod() throws Exception {
+        Log.info("I am in Before Method! Test is starting!");
+
         WebDriverFactory factory = new WebDriverFactory();
 
         driver = factory.create(BrowserType.Chrome);
@@ -23,6 +25,8 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void cleanupAfterEveryTestMethod(){
+        Log.info("I am in After Method! Test is ending!");
+
         driver.close();
         driver.quit();
     }
