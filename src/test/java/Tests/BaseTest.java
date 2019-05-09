@@ -13,6 +13,10 @@ public class BaseTest {
 
     public WebDriver driver;
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     @BeforeClass(alwaysRun = true)
     public void setupForEverySingleMethod() throws Exception {
         Log.info("I am in Before Method! Test is starting!");
