@@ -9,7 +9,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import utilities.ExtentReports.ExtentTestManager;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -29,20 +31,26 @@ public class DashboardTest extends BaseTest {
     }
 
     @Test(groups = { "Add activity" })
-    public void addActivity() {
+    public void addActivity(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Adding an activity");
+
         startLogin();
         assertTrue(dashboardPage.isDisplayed());
         dashboardPage.addActivity();
     }
 
     @Test(groups = { "Calendar" }, dependsOnMethods = { "addActivity" })
-    public void getColsSizeOfCalendar() {
+    public void getColsSizeOfCalendar(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Getting the cols size of calendar");
+
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getCalendarColsSize(), 7);
     }
 
     @Test(groups = { "Calendar" }, dependsOnMethods = { "getColsSizeOfCalendar" })
-    public void getDaysNameOfCalendar() {
+    public void getDaysNameOfCalendar(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Getting the days name of week");
+
         List<String> expectedLabelsList = ImmutableList.of("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
         assertTrue(dashboardPage.isDisplayed());
@@ -50,8 +58,10 @@ public class DashboardTest extends BaseTest {
     }
 
     @Test(groups = { "Calendar" }, dependsOnMethods = { "getDaysNameOfCalendar" })
-    public void getCalendarMonthView() {
+    public void getCalendarMonthView(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Getting the days of the month");
+
         assertTrue(dashboardPage.isDisplayed());
-        assertEquals(dashboardPage.calendarMonthView(), 30);
+        assertEquals(dashboardPage.calendarMonthView(), 31);
     }
 }

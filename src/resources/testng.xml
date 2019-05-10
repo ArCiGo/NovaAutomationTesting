@@ -5,6 +5,7 @@
 
     <listeners>
         <listener class-name="Listeners.Listener" />
+        <listener class-name="Listeners.AnnotationTransformer" />
     </listeners>
 
     <test name = "Test_1">

@@ -3,6 +3,7 @@ package Tests;
 import AutomationResources.BrowserType;
 import AutomationResources.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -12,6 +13,7 @@ import utilities.Log;
 public class BaseTest {
 
     public WebDriver driver;
+    public WebDriverWait wait;
 
     public WebDriver getDriver() {
         return driver;
@@ -24,6 +26,7 @@ public class BaseTest {
         WebDriverFactory factory = new WebDriverFactory();
 
         driver = factory.create(BrowserType.Chrome);
+        wait = new WebDriverWait(driver, 15);
         driver.manage().window().maximize();
     }
 

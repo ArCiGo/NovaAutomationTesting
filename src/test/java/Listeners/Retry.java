@@ -19,10 +19,8 @@ public class Retry implements IRetryAnalyzer {
         if (!iTestResult.isSuccess()) {
             if (count < maxTry) {
                 count++;
-
                 iTestResult.setStatus(ITestResult.FAILURE);
                 extendReportsFailOperations(iTestResult);
-
                 return true;
             }
         } else {

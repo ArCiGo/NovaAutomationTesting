@@ -14,6 +14,25 @@ import utilities.Log;
 
 public class Listener extends BaseTest implements ITestListener {
 
+    private static String getTestMethodName(ITestResult iTestResult) {
+        return iTestResult.getMethod().getConstructorOrMethod().getName();
+    }
+
+    @Override
+    public void onStart(ITestContext iTestContext) {
+        Log.info("I am in onStart() method " + iTestContext.getName());
+
+        iTestContext.setAttribute("WebDriver", this.driver);
+    }
+
+    @Override
+    public void onFinish(ITestContext iTestContext) {
+        Log.info("I am in onFinish() method " + iTestContext.getName());
+
+        ExtentTestManager.endTest();
+        ExtentManager.getReporter().flush();
+    }
+
     @Override
     public void onTestStart(ITestResult iTestResult) {
         Log.info("I am in onTestStart() method: " + getTestMethodName(iTestResult) + " started");
@@ -48,24 +67,5 @@ public class Listener extends BaseTest implements ITestListener {
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
         Log.warn("Test failed but it is in defined success ratio: " + getTestMethodName(iTestResult));
-    }
-
-    @Override
-    public void onStart(ITestContext iTestContext) {
-        Log.info("I am in onStart() method " + iTestContext.getName());
-
-        iTestContext.setAttribute("WebDriver", this.driver);
-    }
-
-    @Override
-    public void onFinish(ITestContext iTestContext) {
-        Log.info("I am in onFinish() method " + iTestContext.getName());
-
-        ExtentTestManager.endTest();
-        ExtentManager.getReporter().flush();
-    }
-
-    private static String getTestMethodName(ITestResult iTestResult) {
-        return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
 }
