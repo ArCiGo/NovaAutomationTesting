@@ -42,28 +42,23 @@ public class DashboardPage extends BaseApplicationPage {
     @FindBy(xpath = "//div[@class='ui large modal transition visible active fade up visible transition sc-cSHVUG fYdhRt']")
     private WebElement activitiesModal;
 
-    @FindBy(xpath = "//body[@class='dimmable dimmed']/div[@class='ui inverted page modals dimmer transition visible active']/div[@class='ui large modal transition visible active fade up visible transition sc-cSHVUG fYdhRt']/div[@class='sc-chPdSV Ztmir content']/div[@class='description']/div/div[@class='sc-cLQEGU ccJTjf']/div[1]/div[1]")
+    @FindBy(xpath = "//p[contains(text(), 'Project')]/following-sibling::div")
     private WebElement projectCombobox;
 
-    @FindBy(xpath = "//div[@class='menu transition visible']//div[2]")
-    private WebElement iTexicoTalentManagementeProjectOption;
+    private String projectOptionsXPath = "//p[contains(text(), 'Project')]/following-sibling::div/div[@role='listbox']/div/span[contains(text(), 'iTexico')]";
 
-    @FindBy(xpath = "//body[@class='dimmable dimmed']/div[@class='ui inverted page modals dimmer transition visible active']/div[@class='ui large modal transition visible active fade up visible transition sc-cSHVUG fYdhRt']/div[@class='sc-chPdSV Ztmir content']/div[@class='description']/div/div[@class='sc-cLQEGU ccJTjf']/div[2]/div[1]")
+    @FindBy(xpath = "//p[contains(text(), 'Categories')]/following-sibling::div")
     private WebElement categoriesCombobox;
 
-    @FindBy(xpath = "//div[13]")
-    private WebElement trainingCategoryOption;
+    private String categoryOptionsXpath = "//p[contains(text(), 'Categories')]/following-sibling::div/div[@role='listbox']/div/span[contains(text(), 'Training')]";
 
-    @FindBy(xpath = "//input[@placeholder='Enter hours']")
-    private WebElement hoursInput;
+    private String hoursInput = "//p[contains(text(), 'Hours')]/following-sibling::div/input[@placeholder='Enter hours']";
 
-    @FindBy(xpath = "//input[@placeholder='Ticket Name']")
-    private WebElement ticketInput;
+    private String ticketInput = "//p[contains(text(), 'Ticket')]/following-sibling::div/input[@placeholder='Ticket Name']";
 
-    @FindBy(xpath = "//textarea[@title='*Comments']")
-    private WebElement commentsTextarea;
+    private String commentsTextarea = "//p[contains(text(), '*Comments')]/following-sibling::textarea[@title='*Comments']";
 
-    @FindBy(xpath = "//button[@class='sc-htoDjs biETra']")
+    @FindBy(xpath = "//div[contains(@class, 'description')]/descendant::button[contains(@label, 'save')]")
     private WebElement createButton;
 
     @FindBy(xpath = "//span[@id='client-snackbar']")
@@ -132,19 +127,24 @@ public class DashboardPage extends BaseApplicationPage {
         assertTrue(activitiesModal.isDisplayed());
 
         projectCombobox.click();
-        wait.until(ExpectedConditions.visibilityOf(iTexicoTalentManagementeProjectOption));
-        iTexicoTalentManagementeProjectOption.click();
+        WebElement projectOption = getProjectOptionElement("iTexico - Talent Management");
+        wait.until(ExpectedConditions.visibilityOf(projectOption));
+        projectOption.click();
 
         categoriesCombobox.click();
-        wait.until(ExpectedConditions.visibilityOf(trainingCategoryOption));
-        trainingCategoryOption.click();
+        WebElement categoryOption = getCategoryOptionElement("Training & Development (not project related)");
+        wait.until(ExpectedConditions.visibilityOf(categoryOption));
+        categoryOption.click();
 
-        hoursInput.clear();
-        hoursInput.sendKeys("8");
+        WebElement hourInput = getHourElement();
+        hourInput.clear();
+        hourInput.sendKeys("8");
 
+        WebElement ticketInput = getTicketElement();
         ticketInput.clear();
         ticketInput.sendKeys("Testing");
 
+        WebElement commentsTextarea = getCommentsElement();
         commentsTextarea.clear();
         commentsTextarea.sendKeys("Something amazing");
 
@@ -152,5 +152,25 @@ public class DashboardPage extends BaseApplicationPage {
 
         wait.until(ExpectedConditions.visibilityOf(successfulSnackbar));
         assertEquals(successfulSnackbar.getText(), "Activity successfully created");
+    }
+
+    private WebElement getProjectOptionElement(String textOption) {
+        return driver.findElement(By.xpath(projectOptionsXPath.replace("iTexico", textOption)));
+    }
+
+    private WebElement getCategoryOptionElement(String textOption) {
+        return driver.findElement(By.xpath(categoryOptionsXpath.replace("Training", textOption)));
+    }
+
+    private WebElement getHourElement() {
+        return driver.findElement(By.xpath(hoursInput));
+    }
+
+    private WebElement getTicketElement() {
+        return driver.findElement(By.xpath(ticketInput));
+    }
+
+    private WebElement getCommentsElement() {
+        return driver.findElement(By.xpath(commentsTextarea));
     }
 }
