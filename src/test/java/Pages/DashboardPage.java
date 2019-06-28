@@ -138,6 +138,9 @@ public class DashboardPage extends BaseApplicationPage {
 
         WebElement today = getTodayElement();
 
+        returnElements.add(today.getText());
+        returnElements.add(ticketValue);
+
         projectCombobox.click();
         WebElement projectOption = getProjectOptionElement(projectOptionValue);
         wait.until(ExpectedConditions.visibilityOf(projectOption));
@@ -165,9 +168,6 @@ public class DashboardPage extends BaseApplicationPage {
         wait.until(ExpectedConditions.visibilityOf(successfulSnackbar));
         assertEquals(successfulSnackbar.getText(), "Activity successfully created");
 
-        returnElements.add(today.getText());
-        returnElements.add(ticketValue);
-
         return returnElements;
     }
 
@@ -176,22 +176,22 @@ public class DashboardPage extends BaseApplicationPage {
         int i, j;
 
         for (i = 0; i < calendarHeader.size(); i ++) {
-            day = calendarHeader.get(i).findElement(By.xpath("//div/div")).getText();
+            day = calendarHeader.get(i).findElement(By.xpath("./div/div")).getText();
 
             if(day == today) {
                 break;
             }
         }
 
-        List<WebElement> todayColumnActivities = calendarBody.get(i).findElements(By.xpath("//div/div"));
+        List<WebElement> todayColumnActivities = calendarBody.get(i-1).findElements(By.xpath("./div/div"));
 
-        for(j= 0; j <todayColumnActivities.size(); i++) {
-            if(todayColumnActivities.get(i).findElement(By.xpath("//div/p/following-sibling::span[1]")).getText() == ticketValue) {
+        for(j= 0; j <todayColumnActivities.size(); j++) {
+            if(todayColumnActivities.get(j).findElement(By.xpath("./div/p/following-sibling::span[1]")).getText() == ticketValue) {
                 break;
             }
         }
 
-        WebElement todaySelectedActivity = todayColumnActivities.get(j);
+        WebElement todaySelectedActivity = todayColumnActivities.get(j-1);
         todaySelectedActivity.click();
     }
 
