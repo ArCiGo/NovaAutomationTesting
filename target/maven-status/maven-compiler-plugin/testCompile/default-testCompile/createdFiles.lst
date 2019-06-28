@@ -1,6 +1,11 @@
 Tests/ExampleTest.class
 Pages/DashboardPage.class
+utilities/ExtentReports/ExtentTestManager.class
+Listeners/Retry.class
+Listeners/Listener.class
 Pages/HomePage.class
+utilities/ExtentReports/ExtentManager.class
+Listeners/AnnotationTransformer.class
 Tests/BaseTest.class
 Pages/MicrosoftLoginPage.class
 AutomationResources/BrowserType.class
@@ -10,5 +15,6 @@ Tests/DashboardTest.class
 AutomationResources/WebDriverFactory.class
 AutomationResources/WebDriverFactory$1.class
 Pages/ContactUsPage.class
+utilities/Log.class
 Pages/LoginPage.class
 Pages/HeaderSection.class

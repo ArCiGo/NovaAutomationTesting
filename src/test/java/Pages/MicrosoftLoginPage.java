@@ -13,7 +13,7 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
 
     private WebDriverWait wait;
     private String email = "armando.cifuentes@itexico.com";
-    private String password = "";
+    private String password = "Intheend12";
 
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [tests]" verbose="0">
-  <test name="Test_3(failed)">
+  <listeners>
+    <listener class-name="Listeners.Listener"/>
+    <listener class-name="Listeners.AnnotationTransformer"/>
+  </listeners>
+  <test name="Test_2(failed)">
     <groups>
       <run>
-        <include name="Calendar"/>
+        <include name="all"/>
       </run>
     </groups>
     <classes>
@@ -16,41 +20,14 @@
       </class> <!-- Tests.LoginTest -->
       <class name="Tests.DashboardTest">
         <methods>
+          <include name="getCalendarMonthView"/>
+          <include name="getColsSizeOfCalendar"/>
+          <include name="addActivity" invocation-numbers="0 0"/>
           <include name="getDaysNameOfCalendar"/>
           <include name="setupForEverySingleMethod"/>
-          <include name="setupForEverySingleMethod"/>
-          <include name="setupForEverySingleMethod"/>
-          <include name="cleanupAfterEveryTestMethod"/>
-          <include name="cleanupAfterEveryTestMethod"/>
           <include name="cleanupAfterEveryTestMethod"/>
         </methods>
       </class> <!-- Tests.DashboardTest -->
     </classes>
-  </test> <!-- Test_3(failed) -->
-  <test name="Test_4(failed)">
-    <groups>
-      <run>
-        <include name="Calendar"/>
-      </run>
-    </groups>
-    <classes>
-      <class name="Tests.LoginTest">
-        <methods>
-          <include name="setupForEverySingleMethod"/>
-          <include name="cleanupAfterEveryTestMethod"/>
-        </methods>
-      </class> <!-- Tests.LoginTest -->
-      <class name="Tests.DashboardTest">
-        <methods>
-          <include name="getDaysNameOfCalendar"/>
-          <include name="setupForEverySingleMethod"/>
-          <include name="setupForEverySingleMethod"/>
-          <include name="setupForEverySingleMethod"/>
-          <include name="cleanupAfterEveryTestMethod"/>
-          <include name="cleanupAfterEveryTestMethod"/>
-          <include name="cleanupAfterEveryTestMethod"/>
-        </methods>
-      </class> <!-- Tests.DashboardTest -->
-    </classes>
-  </test> <!-- Test_4(failed) -->
+  </test> <!-- Test_2(failed) -->
 </suite> <!-- Failed suite [tests] -->

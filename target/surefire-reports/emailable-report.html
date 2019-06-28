@@ -31,34 +31,87 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Test_1</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">12.8 seconds</td><td class="numi">Login </td><td class="numi"></td></tr>
-<tr class="stripe"><td style="text-align:left;padding-right:2em">Test_2</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">14.3 seconds</td><td class="numi">Add activity </td><td class="numi"></td></tr>
-<tr><td style="text-align:left;padding-right:2em">Test_3</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">11.0 seconds</td><td class="numi">Calendar </td><td class="numi"></td></tr>
-<tr class="stripe"><td style="text-align:left;padding-right:2em">Test_4</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">18.4 seconds</td><td class="numi">Calendar1 </td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Test_1</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">17.6 seconds</td><td class="numi">Login </td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">Test_2</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">3</td><td class="numi_attn">2</td><td class="numi">16.2 seconds</td><td class="numi">all Add activity Calendar </td><td class="numi"></td></tr>
 <tr class="total"><td>Total</td>
-<td class="numi">4</td><td class="numi">4</td><td class="numi">0</td><td class="numi">0</td><td class="numi">56.6 seconds</td><td colspan="2">&nbsp;</td></tr>
+<td class="numi">1</td><td class="numi">1</td><td class="numi_attn">3</td><td class="numi_attn">2</td><td class="numi">34.1 seconds</td><td colspan="2">&nbsp;</td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
 <tr><th colspan="4">Test_1 &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">Tests.LoginTest</td><td><a href="#m1"><b>LoginWithValidCredentials</b> (Login) </a></td><td class="numi">1</td><td>1554239789152</td><td class="numi">10413</td></tr>
-<tr><th colspan="4">Test_2 &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">Tests.DashboardTest</td><td><a href="#m2"><b>addActivity</b> (Add activity) </a></td><td class="numi">1</td><td>1554239801285</td><td class="numi">12700</td></tr>
-<tr><th colspan="4">Test_3 &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">Tests.DashboardTest</td><td><a href="#m3"><b>getColsSizeOfCalendar</b> (Calendar) </a></td><td class="numi">1</td><td>1554239815671</td><td class="numi">9315</td></tr>
-<tr><th colspan="4">Test_4 &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">Tests.DashboardTest</td><td><a href="#m4"><b>getDaysNameOfCalendar</b> (Calendar1) </a></td><td class="numi">1</td><td>1554239826579</td><td class="numi">16819</td></tr>
+<tr class="passedodd"><td rowspan="1">Tests.LoginTest</td><td><a href="#m1"><b>LoginWithValidCredentials</b> (Login) </a></td><td class="numi">1</td><td>1561680012993</td><td class="numi">14788</td></tr>
+<tr><th colspan="4">Test_2 &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="2">Tests.DashboardTest</td><td><a href="#m2"><b>addActivity</b> (Add activity) </a></td><td class="numi">2</td><td>1561680029772</td><td class="numi">13880</td></tr><tr class="failedodd"><td><a href="#m3"><b>addActivity</b> (Add activity) </a></td><td class="numi">2</td><td>1561680029772</td><td class="numi">13880</td></tr>
+<tr><th colspan="4">Test_2 &#8212; skipped</th></tr>
+<tr class="skippedodd"><td rowspan="3">Tests.DashboardTest</td><td><a href="#m4"><b>getColsSizeOfCalendar</b> (Calendar) </a></td><td class="numi">1</td><td>1561680044330</td><td class="numi">0</td></tr><tr class="skippedodd"><td><a href="#m5"><b>getDaysNameOfCalendar</b> (Calendar) </a></td><td class="numi">1</td><td>1561680044331</td><td class="numi">0</td></tr><tr class="skippedodd"><td><a href="#m6"><b>getCalendarMonthView</b> (Calendar) </a></td><td class="numi">1</td><td>1561680044331</td><td class="numi">0</td></tr>
 </table>
 <h1>Test_1</h1>
 <h2 id="m1">Tests.LoginTest:LoginWithValidCredentials</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Parameter #1</th></tr>
+<tr class="param stripe"><td>public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exception</td>
+</tr>
+</table>
 <p class="totop"><a href="#summary">back to summary</a></p>
 <h1>Test_2</h1>
 <h2 id="m2">Tests.DashboardTest:addActivity</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Parameter #1</th></tr>
+<tr class="param stripe"><td>public void Tests.DashboardTest.addActivity(java.lang.reflect.Method)</td>
+</tr>
+<tr><td style="padding-left:3em" colspan="1">
+<p>stale element reference: element is not attached to the page document
+  (Session info: chrome=75.0.3770.100)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Mac OS X 10.14.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;MBP-17-3435.local&apos;, ip: &apos;fe80:0:0:0:107a:786e:2749:1dca%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.5&apos;, java.version: &apos;12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 74.0.3729.6 (255758eccf3d24..., userDataDir: /var/folders/vg/t27wqr910qg...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:57042}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 75.0.3770.100, webStorageEnabled: true}
+Session ID: 287bfb94ce6b228fe57bc41845d6a72d</p>
+java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br/>at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br/>at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br/>at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+<br/>at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+<br/>at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+<br/>at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+<br/>at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+<br/>at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+<br/>at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+<br/>at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+<br/>at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:160)
+<br/>at Pages.DashboardPage.addActivity(DashboardPage.java:168)
+<br/>at Tests.DashboardTest.addActivity(DashboardTest.java:40)
+<br/>29 lines not shown
+</td></tr>
+</table>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h1>Test_3</h1>
-<h2 id="m3">Tests.DashboardTest:getColsSizeOfCalendar</h2>
+<h2 id="m3">Tests.DashboardTest:addActivity</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Parameter #1</th></tr>
+<tr class="param stripe"><td>public void Tests.DashboardTest.addActivity(java.lang.reflect.Method)</td>
+</tr>
+<tr><td style="padding-left:3em" colspan="1">
+<p>expected [true] but found [false]</p>
+org.testng.Assert.fail(Assert.java:94)
+<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
+<br/>at org.testng.Assert.assertTrue(Assert.java:42)
+<br/>at org.testng.Assert.assertTrue(Assert.java:52)
+<br/>at Tests.DashboardTest.startLogin(DashboardTest.java:27)
+<br/>at Tests.DashboardTest.addActivity(DashboardTest.java:38)
+<br/>29 lines not shown
+</td></tr>
+</table>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h1>Test_4</h1>
-<h2 id="m4">Tests.DashboardTest:getDaysNameOfCalendar</h2>
+<h2 id="m4">Tests.DashboardTest:getColsSizeOfCalendar</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m5">Tests.DashboardTest:getDaysNameOfCalendar</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">Tests.DashboardTest:getCalendarMonthView</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

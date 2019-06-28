@@ -73,6 +73,14 @@ public class DashboardPage extends BaseApplicationPage {
     @FindBy(xpath = "//span[@class='sc-ksYbfQ gLpyUQ']")
     private List<WebElement> gridCells;
 
+    private String todayXPath = "//div[contains(@class, 'today')]";
+
+    @FindBy(xpath = "//div[contains(@class,'ui seven column grid') and not(@gridmode)]/descendant::div[contains(@class,'column')]")
+    private List<WebElement> calendarHeader;
+
+    @FindBy(xpath = "//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]")
+    private List<WebElement> calendarBody;
+
     // Methods
 
     public boolean isDisplayed() {
@@ -120,38 +128,79 @@ public class DashboardPage extends BaseApplicationPage {
         return gridCells.size();
     }
 
-    public void addActivity() {
+    public List<String> addActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
+        List<String> returnElements = new ArrayList<String>();
+
         addButton.click();
 
         wait.until(ExpectedConditions.visibilityOf(activitiesModal));
         assertTrue(activitiesModal.isDisplayed());
 
+        WebElement today = getTodayElement();
+
         projectCombobox.click();
-        WebElement projectOption = getProjectOptionElement("iTexico - Talent Management");
+        WebElement projectOption = getProjectOptionElement(projectOptionValue);
         wait.until(ExpectedConditions.visibilityOf(projectOption));
         projectOption.click();
 
         categoriesCombobox.click();
-        WebElement categoryOption = getCategoryOptionElement("Training & Development (not project related)");
+        WebElement categoryOption = getCategoryOptionElement(categoryOptionValue);
         wait.until(ExpectedConditions.visibilityOf(categoryOption));
         categoryOption.click();
 
         WebElement hourInput = getHourElement();
         hourInput.clear();
-        hourInput.sendKeys("8");
+        hourInput.sendKeys(hourValue);
 
         WebElement ticketInput = getTicketElement();
         ticketInput.clear();
-        ticketInput.sendKeys("Testing");
+        ticketInput.sendKeys(ticketValue);
 
         WebElement commentsTextarea = getCommentsElement();
         commentsTextarea.clear();
-        commentsTextarea.sendKeys("Something amazing");
+        commentsTextarea.sendKeys(commentsValue);
 
         createButton.click();
 
         wait.until(ExpectedConditions.visibilityOf(successfulSnackbar));
         assertEquals(successfulSnackbar.getText(), "Activity successfully created");
+
+        returnElements.add(today.getText());
+        returnElements.add(ticketValue);
+
+        return returnElements;
+    }
+
+    public void clickOnSelectedActivity(String today, String ticketValue) {
+        String day;
+        int i, j;
+
+        for (i = 0; i < calendarHeader.size(); i ++) {
+            day = calendarHeader.get(i).findElement(By.xpath("//div/div")).getText();
+
+            if(day == today) {
+                break;
+            }
+        }
+
+        List<WebElement> todayColumnActivities = calendarBody.get(i).findElements(By.xpath("//div/div"));
+
+        for(j= 0; j <todayColumnActivities.size(); i++) {
+            if(todayColumnActivities.get(i).findElement(By.xpath("//div/p/following-sibling::span[1]")).getText() == ticketValue) {
+                break;
+            }
+        }
+
+        WebElement todaySelectedActivity = todayColumnActivities.get(j);
+        todaySelectedActivity.click();
+    }
+
+    public void validateActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
+        assertEquals(projectCombobox.getText(), projectOptionValue);
+        assertEquals(categoriesCombobox.getText(), categoryOptionValue);
+        assertEquals(getHourElement().getText(), hourValue);
+        assertEquals(getTicketElement().getText(), ticketValue);
+        assertEquals(getCommentsElement().getText(), commentsValue);
     }
 
     private WebElement getProjectOptionElement(String textOption) {
@@ -173,4 +222,6 @@ public class DashboardPage extends BaseApplicationPage {
     private WebElement getCommentsElement() {
         return driver.findElement(By.xpath(commentsTextarea));
     }
+
+    private WebElement getTodayElement() { return driver.findElement(By.xpath(todayXPath)); }
 }

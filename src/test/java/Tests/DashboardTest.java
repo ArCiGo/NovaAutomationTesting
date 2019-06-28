@@ -34,9 +34,13 @@ public class DashboardTest extends BaseTest {
     public void addActivity(Method method) {
         ExtentTestManager.startTest(method.getName(), "Adding an activity");
 
+
         startLogin();
         assertTrue(dashboardPage.isDisplayed());
-        dashboardPage.addActivity();
+        List<String> activityList = dashboardPage.addActivity("iTexico - Talent Management", "Training & Development (not project related)", "8", "Testing something amazing", "Something amazing");
+
+        dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
+        dashboardPage.validateActivity("iTexico - Talent Management", "Training & Development (not project related)", "8", "Testing something amazing", "Something amazing");
     }
 
     @Test(groups = { "Calendar" }, dependsOnMethods = { "addActivity" })

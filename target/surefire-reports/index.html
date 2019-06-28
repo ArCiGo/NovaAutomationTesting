@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-tests" class="navigator-link">
-              <span class="suite-name border-passed">tests</span>
+              <span class="suite-name border-failed">tests</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -53,12 +53,12 @@
                 </li>
                 <li>
                   <a href="#" panel-name="testlist-tests" class="navigator-link ">
-                    <span class="test-stats">4 tests</span>
+                    <span class="test-stats">2 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" panel-name="group-tests" class="navigator-link ">
-                    <span>4 groups</span>
+                    <span>3 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,50 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">6 methods, 2 failed,  3 skipped,  1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-tests" class="hide-methods failed suite-tests"> (hide)</a> <!-- hide-methods failed suite-tests -->
+                      <a href="#" panel-name="suite-tests" class="show-methods failed suite-tests"> (show)</a> <!-- show-methods failed suite-tests -->
+                    </span>
+                    <div class="method-list-content failed suite-tests">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))">addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))">addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-tests -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-tests" class="hide-methods skipped suite-tests"> (hide)</a> <!-- hide-methods skipped suite-tests -->
+                      <a href="#" panel-name="suite-tests" class="show-methods skipped suite-tests"> (show)</a> <!-- show-methods skipped suite-tests -->
+                    </span>
+                    <div class="method-list-content skipped suite-tests">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="getCalendarMonthView">getCalendarMonthView</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="getColsSizeOfCalendar">getColsSizeOfCalendar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="getDaysNameOfCalendar">getDaysNameOfCalendar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-tests -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,22 +144,7 @@
                     <div class="method-list-content passed suite-tests">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-tests" title="Tests.LoginTest" class="method navigator-link" hash-for-method="LoginWithValidCredentials">LoginWithValidCredentials</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="addActivity">addActivity</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="getColsSizeOfCalendar">getColsSizeOfCalendar</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-tests" title="Tests.DashboardTest" class="method navigator-link" hash-for-method="getDaysNameOfCalendar">getDaysNameOfCalendar</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-tests" title="Tests.LoginTest" class="method navigator-link" hash-for-method="LoginWithValidCredentials(public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exc...)">LoginWithValidCredentials(public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exc...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-tests -->
@@ -131,32 +159,174 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-tests" class="panel tests">
-          <div class="suite-tests-class-passed">
+          <div class="suite-tests-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Tests.LoginTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="LoginWithValidCredentials">
-                  </a> <!-- LoginWithValidCredentials -->
-                  <span class="method-name">LoginWithValidCredentials</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-tests-class-passed -->
-          <div class="suite-tests-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">Tests.DashboardTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="addActivity">
-                  </a> <!-- addActivity -->
+                  <a name="addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))">
+                  </a> <!-- addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method)) -->
                   <span class="method-name">addActivity</span>
+                  <span class="parameters">(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))</span>
+                  <div class="stack-trace"><b>"org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=75.0.3770.100)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Mac OS X 10.14.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;MBP-17-3435.local&apos;, ip: &apos;fe80:0:0:0:107a:786e:2749:1dca%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.5&apos;, java.version: &apos;12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 74.0.3729.6 (255758eccf3d24..., userDataDir: /var/folders/vg/t27wqr910qg...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:57042}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 75.0.3770.100, webStorageEnabled: true}
+Session ID: 287bfb94ce6b228fe57bc41845d6a72d
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:160)
+	at Pages.DashboardPage.addActivity(DashboardPage.java:168)
+	at Tests.DashboardTest.addActivity(DashboardTest.java:40)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+... Removed 26 stack frames<br/> org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=75.0.3770.100)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Mac OS X 10.14.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;MBP-17-3435.local&apos;, ip: &apos;fe80:0:0:0:107a:786e:2749:1dca%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.5&apos;, java.version: &apos;12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 74.0.3729.6 (255758eccf3d24..., userDataDir: /var/folders/vg/t27wqr910qg...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:57042}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 75.0.3770.100, webStorageEnabled: true}
+Session ID: 287bfb94ce6b228fe57bc41845d6a72d
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:160)
+	at Pages.DashboardPage.addActivity(DashboardPage.java:168)
+	at Tests.DashboardTest.addActivity(DashboardTest.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+"</b><br>java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br>java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br>java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br>java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)<br>java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)<br>org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)<br>org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)<br>org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)<br>org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)<br>org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)<br>org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br>org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br>org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)<br>org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)<br>org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:160)<br>Pages.DashboardPage.addActivity(DashboardPage.java:168)<br>Tests.DashboardTest.addActivity(DashboardTest.java:40)<br>java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>java.base/java.lang.reflect.Method.invoke(Method.java:567)<br>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br>org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br>org.testng.TestRunner.privateRun(TestRunner.java:767)<br>org.testng.TestRunner.run(TestRunner.java:617)<br>org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br>org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br>org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br>org.testng.SuiteRunner.run(SuiteRunner.java:240)<br>org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br>org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br>org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br>org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br>org.testng.TestNG.run(TestNG.java:1031)<br>org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)<br>org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)<br>org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)<br>org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)<br>org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)<br>org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)<br>org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)<br>
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))">
+                  </a> <!-- addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method)) -->
+                  <span class="method-name">addActivity</span>
+                  <span class="parameters">(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))</span>
+                  <div class="stack-trace"><b>"java.lang.AssertionError: expected [true] but found [false]
+	at Tests.DashboardTest.startLogin(DashboardTest.java:27)
+	at Tests.DashboardTest.addActivity(DashboardTest.java:38)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+... Removed 25 stack frames<br/> java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at Tests.DashboardTest.startLogin(DashboardTest.java:27)
+	at Tests.DashboardTest.addActivity(DashboardTest.java:38)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1049)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1254)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+"</b><br>org.testng.Assert.fail(Assert.java:94)<br>org.testng.Assert.failNotEquals(Assert.java:494)<br>org.testng.Assert.assertTrue(Assert.java:42)<br>org.testng.Assert.assertTrue(Assert.java:52)<br>Tests.DashboardTest.startLogin(DashboardTest.java:27)<br>Tests.DashboardTest.addActivity(DashboardTest.java:38)<br>java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>java.base/java.lang.reflect.Method.invoke(Method.java:567)<br>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br>org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br>org.testng.internal.Invoker.retryFailed(Invoker.java:1049)<br>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1254)<br>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br>org.testng.TestRunner.privateRun(TestRunner.java:767)<br>org.testng.TestRunner.run(TestRunner.java:617)<br>org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br>org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br>org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br>org.testng.SuiteRunner.run(SuiteRunner.java:240)<br>org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br>org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br>org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br>org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br>org.testng.TestNG.run(TestNG.java:1031)<br>org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)<br>org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)<br>org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)<br>org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)<br>org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)<br>org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)<br>org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)<br>
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-tests-class-failed -->
+          <div class="suite-tests-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">Tests.DashboardTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="getCalendarMonthView">
+                  </a> <!-- getCalendarMonthView -->
+                  <span class="method-name">getCalendarMonthView</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -174,6 +344,22 @@
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-tests-class-skipped -->
+          <div class="suite-tests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Tests.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="LoginWithValidCredentials(public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exc...)">
+                  </a> <!-- LoginWithValidCredentials(public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exc...) -->
+                  <span class="method-name">LoginWithValidCredentials</span>
+                  <span class="parameters">(public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exception)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-tests-class-passed -->
         </div> <!-- panel tests -->
         <div panel-name="test-xml-tests" class="panel">
@@ -185,6 +371,10 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;tests&quot; verbose=&quot;0&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;Listeners.Listener&quot;/&gt;
+    &lt;listener class-name=&quot;Listeners.AnnotationTransformer&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test name=&quot;Test_1&quot;&gt;
     &lt;groups&gt;
       &lt;run&gt;
@@ -197,34 +387,18 @@
   &lt;/test&gt; &lt;!-- Test_1 --&gt;
   &lt;test name=&quot;Test_2&quot;&gt;
     &lt;groups&gt;
-      &lt;run&gt;
+      &lt;define name=&quot;all&quot;&gt;
         &lt;include name=&quot;Add activity&quot;/&gt;
+        &lt;include name=&quot;Calendar&quot;/&gt;
+      &lt;/define&gt; &lt;!-- all --&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;all&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
       &lt;class name=&quot;Tests.DashboardTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test_2 --&gt;
-  &lt;test name=&quot;Test_3&quot;&gt;
-    &lt;groups&gt;
-      &lt;run&gt;
-        &lt;include name=&quot;Calendar&quot;/&gt;
-      &lt;/run&gt;
-    &lt;/groups&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;Tests.DashboardTest&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test_3 --&gt;
-  &lt;test name=&quot;Test_4&quot;&gt;
-    &lt;groups&gt;
-      &lt;run&gt;
-        &lt;include name=&quot;Calendar1&quot;/&gt;
-      &lt;/run&gt;
-    &lt;/groups&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;Tests.DashboardTest&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test_4 --&gt;
 &lt;/suite&gt; &lt;!-- tests --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -240,12 +414,6 @@
               </li>
               <li>
                 <span class="test-name">Test_2 (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">Test_3 (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">Test_4 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -267,13 +435,13 @@
               <span class="test-group-name">Calendar</span>
               <br/>
               <div class="method-in-group">
+                <span class="method-in-group-name">getCalendarMonthView</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
                 <span class="method-in-group-name">getColsSizeOfCalendar</span>
                 <br/>
               </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
-            <div class="test-group">
-              <span class="test-group-name">Calendar1</span>
-              <br/>
               <div class="method-in-group">
                 <span class="method-in-group-name">getDaysNameOfCalendar</span>
                 <br/>
@@ -303,28 +471,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'getDaysNameOfCalendar')
-data.setCell(0, 2, 'Tests.DashboardTest')
-data.setCell(0, 3, 16819);
+data.setCell(0, 1, 'LoginWithValidCredentials')
+data.setCell(0, 2, 'Tests.LoginTest')
+data.setCell(0, 3, 14788);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'addActivity')
 data.setCell(1, 2, 'Tests.DashboardTest')
-data.setCell(1, 3, 12700);
+data.setCell(1, 3, 12164);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'LoginWithValidCredentials')
-data.setCell(2, 2, 'Tests.LoginTest')
-data.setCell(2, 3, 10413);
+data.setCell(2, 1, 'addActivity')
+data.setCell(2, 2, 'Tests.DashboardTest')
+data.setCell(2, 3, 462);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'getColsSizeOfCalendar')
 data.setCell(3, 2, 'Tests.DashboardTest')
-data.setCell(3, 3, 9315);
+data.setCell(3, 3, 0);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'getDaysNameOfCalendar')
+data.setCell(4, 2, 'Tests.DashboardTest')
+data.setCell(4, 3, 0);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'getCalendarMonthView')
+data.setCell(5, 2, 'Tests.DashboardTest')
+data.setCell(5, 3, 0);
 window.suiteTableData['tests']= { tableData: data, tableDiv: 'times-div-tests'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 49 seconds</span>
+              <span class="suite-total-time">Total running time: 27 seconds</span>
               <div id="times-div-tests">
               </div> <!-- times-div-tests -->
             </div> <!-- times-div -->
@@ -339,26 +515,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-tests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">6 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">Tests.DashboardTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">getColsSizeOfCalendar</span>
-                <br/>
-                <span class="ignored-method-name">getColsSizeOfCalendar</span>
-                <br/>
-                <span class="ignored-method-name">getDaysNameOfCalendar</span>
-                <br/>
-                <span class="ignored-method-name">addActivity</span>
-                <br/>
-                <span class="ignored-method-name">getDaysNameOfCalendar</span>
-                <br/>
-                <span class="ignored-method-name">addActivity</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-tests" class="panel">
@@ -368,57 +527,41 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">Tests.LoginTest</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
+              <div class="configuration-class before">
                 <span class="method-name">setupForEverySingleMethod</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- configuration-test before -->
+              </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">LoginWithValidCredentials</span>
-                <span class="method-start">2153 ms</span>
+                <span class="method-name">LoginWithValidCredentials(public void Tests.LoginTest.LoginWithValidCredentials(java.lang.reflect.Method) throws java.lang.Exc...)</span>
+                <span class="method-start">2124 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-test after">
+              <div class="configuration-class after">
                 <span class="method-name">cleanupAfterEveryTestMethod</span>
-                <span class="method-start">12568 ms</span>
-              </div> <!-- configuration-test after -->
+                <span class="method-start">16914 ms</span>
+              </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Tests.DashboardTest</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
+              <div class="configuration-class before">
                 <span class="method-name">setupForEverySingleMethod</span>
-                <span class="method-start">12835 ms</span>
-              </div> <!-- configuration-test before -->
+                <span class="method-start">17470 ms</span>
+              </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">addActivity</span>
-                <span class="method-start">14286 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))</span>
+                <span class="method-start">18903 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-test after">
-                <span class="method-name">cleanupAfterEveryTestMethod</span>
-                <span class="method-start">26986 ms</span>
-              </div> <!-- configuration-test after -->
-              <div class="configuration-test before">
-                <span class="method-name">setupForEverySingleMethod</span>
-                <span class="method-start">27152 ms</span>
-              </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">getColsSizeOfCalendar</span>
-                <span class="method-start">28672 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">addActivity(public void Tests.DashboardTest.addActivity(java.lang.reflect.Method))</span>
+                <span class="method-start">32321 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-test after">
+              <div class="configuration-class after">
                 <span class="method-name">cleanupAfterEveryTestMethod</span>
-                <span class="method-start">37988 ms</span>
-              </div> <!-- configuration-test after -->
-              <div class="configuration-test before">
-                <span class="method-name">setupForEverySingleMethod</span>
-                <span class="method-start">38146 ms</span>
-              </div> <!-- configuration-test before -->
-              <div class="test-method">
-                <span class="method-name">getDaysNameOfCalendar</span>
-                <span class="method-start">39580 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-test after">
-                <span class="method-name">cleanupAfterEveryTestMethod</span>
-                <span class="method-start">56400 ms</span>
-              </div> <!-- configuration-test after -->
+                <span class="method-start">33463 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
