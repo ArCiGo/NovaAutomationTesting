@@ -112,7 +112,7 @@ public class DashboardPage extends BaseApplicationPage {
 
         //wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//span[@class='sc-kTUwUJ MUBma']"), 7));
 
-        for(WebElement item : calendarDaysOfWeek) {
+        for (WebElement item : calendarDaysOfWeek) {
             daysOfWeekList.add(item.getText());
         }
 
@@ -173,33 +173,33 @@ public class DashboardPage extends BaseApplicationPage {
 
     public void clickOnSelectedActivity(String today, String ticketValue) {
         String day;
-        int i, j;
+        int indexDateHeader = 0, indexTicketValue = 0;
 
-        for (i = 0; i < calendarHeader.size(); i ++) {
+        for (int i = 0; i < calendarHeader.size(); i++) {
             day = calendarHeader.get(i).findElement(By.xpath("./div/div")).getText();
 
-            if(day == today) {
-                break;
+            if (day.equals(today)) {
+                indexDateHeader = i;
             }
         }
 
-        List<WebElement> todayColumnActivities = calendarBody.get(i-1).findElements(By.xpath("./div/div"));
+        List<WebElement> todayColumnActivities = calendarBody.get(indexDateHeader).findElements(By.xpath("./div/div"));
 
-        for(j= 0; j <todayColumnActivities.size(); j++) {
-            if(todayColumnActivities.get(j).findElement(By.xpath("./div/p/following-sibling::span[1]")).getText() == ticketValue) {
-                break;
+        for (int j = 0; j < todayColumnActivities.size(); j++) {
+            if (todayColumnActivities.get(j).findElement(By.xpath("./div/p/following-sibling::span[1]")).getText().equals(ticketValue)) {
+                indexTicketValue = j;
             }
         }
 
-        WebElement todaySelectedActivity = todayColumnActivities.get(j-1);
+        WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue);
         todaySelectedActivity.click();
     }
 
     public void validateActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
         assertEquals(projectCombobox.getText(), projectOptionValue);
         assertEquals(categoriesCombobox.getText(), categoryOptionValue);
-        assertEquals(getHourElement().getText(), hourValue);
-        assertEquals(getTicketElement().getText(), ticketValue);
+        assertEquals(getHourElement().getAttribute("value"), hourValue);
+        assertEquals(getTicketElement().getAttribute("value"), ticketValue);
         assertEquals(getCommentsElement().getText(), commentsValue);
     }
 
@@ -223,5 +223,7 @@ public class DashboardPage extends BaseApplicationPage {
         return driver.findElement(By.xpath(commentsTextarea));
     }
 
-    private WebElement getTodayElement() { return driver.findElement(By.xpath(todayXPath)); }
+    private WebElement getTodayElement() {
+        return driver.findElement(By.xpath(todayXPath));
+    }
 }
