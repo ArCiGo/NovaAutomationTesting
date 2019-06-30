@@ -10,8 +10,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utilities.ExtentReports.ExtentTestManager;
+import utilities.Log;
 
 import java.lang.reflect.Method;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -20,6 +23,12 @@ import static org.testng.Assert.assertTrue;
 public class DashboardTest extends BaseTest {
 
     private DashboardPage dashboardPage;
+
+    String projectOptionValue = "iTexico - Talent Management",
+            categoryOptionValue = "Training & Development (not project related)",
+            hourValue = "8",
+            ticketValue = "Testing something amazing",
+            commentsValue = "Something amazing";
 
     private void startLogin() {
         LoginPage loginPage = new LoginPage(driver);
@@ -30,25 +39,22 @@ public class DashboardTest extends BaseTest {
         dashboardPage = new DashboardPage(driver);
     }
 
-    @Test(groups = { "Add activity" })
+    @Test(groups = {"Add activity"})
     public void addActivity(Method method) {
         ExtentTestManager.startTest(method.getName(), "Adding an activity");
 
-        String projectOptionValue = "iTexico - Talent Management",
-                categoryOptionValue = "Training & Development (not project related)",
-                hourValue = "8",
-                ticketValue = "Testing something amazing",
-                commentsValue = "Something amazing";
-
         startLogin();
         assertTrue(dashboardPage.isDisplayed());
-        List<String> activityList = dashboardPage.addActivity(projectOptionValue, categoryOptionValue, hourValue,ticketValue , commentsValue);
+
+        dashboardPage.openActivityModal();
+        List<String> activityList = dashboardPage.addActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
 
         dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
-        dashboardPage.validateActivity(projectOptionValue, categoryOptionValue, hourValue,ticketValue , commentsValue);
+        dashboardPage.validateActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+        dashboardPage.closeActivityModal();
     }
 
-    @Test(groups = { "Calendar" }, dependsOnMethods = { "addActivity" })
+    @Test(groups = {"Calendar"}, dependsOnMethods = {"addActivity"})
     public void getColsSizeOfCalendar(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the cols size of calendar");
 
@@ -56,7 +62,7 @@ public class DashboardTest extends BaseTest {
         assertEquals(dashboardPage.getCalendarColsSize(), 7);
     }
 
-    @Test(groups = { "Calendar" }, dependsOnMethods = { "getColsSizeOfCalendar" })
+    @Test(groups = {"Calendar"}, dependsOnMethods = {"getColsSizeOfCalendar"})
     public void getDaysNameOfCalendar(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the days name of week");
 
@@ -66,11 +72,13 @@ public class DashboardTest extends BaseTest {
         assertEquals(dashboardPage.getDaysOfTheWeek(), expectedLabelsList);
     }
 
-    @Test(groups = { "Calendar" }, dependsOnMethods = { "getDaysNameOfCalendar" })
+    @Test(groups = {"Calendar"}, dependsOnMethods = {"getDaysNameOfCalendar"})
     public void getCalendarMonthView(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the days of the month");
 
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.calendarMonthView(), 31);
     }
+
+
 }
