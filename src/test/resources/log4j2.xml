@@ -6,7 +6,7 @@
             <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
         </Console>
         <!-- File Appender -->
-        <File name="File" fileName="/Users/arcigo/Documents/Projects/NovaAutomationTesting.log">
+        <File name="File" fileName="NovaAutomationTesting.log">
             <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
         </File>
     </Appenders>
