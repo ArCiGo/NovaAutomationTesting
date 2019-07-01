@@ -15,6 +15,7 @@ import utilities.Log;
 import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -77,7 +78,7 @@ public class DashboardTest extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "Getting the days of the month");
 
         assertTrue(dashboardPage.isDisplayed());
-        assertEquals(dashboardPage.calendarMonthView(), 31);
+        assertEquals(dashboardPage.calendarMonthView(), LocalDate.now().lengthOfMonth());
     }
 
 
