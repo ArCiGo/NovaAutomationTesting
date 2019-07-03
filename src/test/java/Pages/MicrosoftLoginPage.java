@@ -13,11 +13,11 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
 
     private WebDriverWait wait;
     private String email = "armando.cifuentes@itexico.com";
-    private String password = "";
+    private String password = "Intheend12";
 
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);
-        wait = new WebDriverWait(driver, 2);
+        wait = new WebDriverWait(driver, 5);
     }
 
     // Elements
@@ -31,7 +31,7 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
     @FindBy(id = "i0118")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//input[@id='idSIButton9']")
+    @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")]")
     private WebElement signInButton;
 
     @FindBy(xpath = "//input[@id='idBtn_Back']")
@@ -40,10 +40,13 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
     // Methods
 
     public boolean isLoaded() {
-        boolean isLoaded = driver.getCurrentUrl().contains("microsoftonline")
-                ? true : false;
+        wait.until(ExpectedConditions.visibilityOf(nextButton));
 
-        return isLoaded;
+        try {
+            return nextButton.isDisplayed();
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
     public void fillForm() {
@@ -51,11 +54,14 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
         emailInput.sendKeys(email);
         nextButton.click();
 
-        wait.until(ExpectedConditions.visibilityOf(passwordInput));
+        wait.until(ExpectedConditions.visibilityOf(signInButton));
 
         passwordInput.clear();
         passwordInput.sendKeys(password);
         signInButton.click();
+
+        wait.until(ExpectedConditions.visibilityOf(noButton));
+
         noButton.click();
     }
 }

@@ -55,28 +55,31 @@ public class DashboardTest extends BaseTest {
         dashboardPage.closeActivityModal();
     }
 
-    @Test(groups = {"Calendar"}, dependsOnMethods = {"addActivity"})
+    @Test(groups = {"Calendar_1"})
     public void getColsSizeOfCalendar(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the cols size of calendar");
 
+        startLogin();
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getCalendarColsSize(), 7);
     }
 
-    @Test(groups = {"Calendar"}, dependsOnMethods = {"getColsSizeOfCalendar"})
+    @Test(groups = {"Calendar_2"})
     public void getDaysNameOfCalendar(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the days name of week");
 
         List<String> expectedLabelsList = ImmutableList.of("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
+        startLogin();
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.getDaysOfTheWeek(), expectedLabelsList);
     }
 
-    @Test(groups = {"Calendar"}, dependsOnMethods = {"getDaysNameOfCalendar"})
+    @Test(groups = {"Calendar_3"})
     public void getCalendarMonthView(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the days of the month");
 
+        startLogin();
         assertTrue(dashboardPage.isDisplayed());
         assertEquals(dashboardPage.calendarMonthView(), LocalDate.now().lengthOfMonth());
     }
