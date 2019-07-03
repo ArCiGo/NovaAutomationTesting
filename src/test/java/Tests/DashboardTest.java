@@ -125,6 +125,37 @@ public class DashboardTest extends BaseTest {
         dashboardPage.closeActivityModal();
     }
 
+    @Test(groups = {"Delete activity"})
+    public void deleteActivity(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Delete an activity");
+
+        startLogin();
+        assertTrue(dashboardPage.isDisplayed());
+
+        // Creation of activity
+        dashboardPage.openActivityModal();
+        List<String> activityList = dashboardPage.fillActivity(
+                createActivityList.get(0),
+                createActivityList.get(1),
+                createActivityList.get(2),
+                createActivityList.get(3),
+                createActivityList.get(4)
+        );
+
+        dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
+        dashboardPage.validateActivity(
+                createActivityList.get(0),
+                createActivityList.get(1),
+                createActivityList.get(2),
+                createActivityList.get(3),
+                createActivityList.get(4)
+        );
+        dashboardPage.closeActivityModal();
+
+        // Delete of activity created
+        dashboardPage.clickOnSelectedActivityToDelete(activityList.get(0), activityList.get(1));
+    }
+
     @Test(groups = {"Calendar_1"})
     public void getColsSizeOfCalendar(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the cols size of calendar");

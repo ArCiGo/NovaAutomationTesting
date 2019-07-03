@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,6 +207,32 @@ public class DashboardPage extends BaseApplicationPage {
 
         WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue);
         todaySelectedActivity.click();
+    }
+
+    public void clickOnSelectedActivityToDelete(String today, String ticketValue) {
+        String day;
+        int indexDateHeader = 0, indexTicketValue = 0;
+
+        for (int i = 0; i < calendarHeaderXPathLocator.size(); i++) {
+            day = calendarHeaderXPathLocator.get(i).findElement(By.xpath("./div/div")).getText();
+
+            if (day.equals(today)) {
+                indexDateHeader = i;
+            }
+        }
+
+        // clicking the three dots icon
+        List<WebElement> todayColumnActivities = calendarBodyXPathLocator.get(indexDateHeader).findElements(By.xpath("./div/div"));
+
+        for (int j = 0; j < todayColumnActivities.size(); j++) {
+            if (todayColumnActivities.get(j).findElement(By.xpath("./div/p/following-sibling::span[1]")).getText().equals(ticketValue)) {
+                indexTicketValue = j;
+            }
+        }
+
+        WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue).findElement(By.xpath("./descendant::div[contains(@class, 'dropdown')]"));
+        Log.info("El elemento es: " + todaySelectedActivity.getAttribute("role"));
+        //todaySelectedActivity.click();
     }
 
     public void validateActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
