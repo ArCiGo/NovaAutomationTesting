@@ -55,6 +55,35 @@ public class DashboardTest extends BaseTest {
         dashboardPage.closeActivityModal();
     }
 
+    @Test(groups = {"Update activity"})
+    public void updateActivity(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Update an activity");
+
+        startLogin();
+        assertTrue(dashboardPage.isDisplayed());
+
+        // Creation of activity
+
+        dashboardPage.openActivityModal();
+        List<String> activityList = dashboardPage.addActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+
+        dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
+        dashboardPage.validateActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+        dashboardPage.closeActivityModal();
+
+        // Update of activity created
+
+        /*
+        ToDO: Update addActivity() method to fillForm() and make it more generic removing the snackbar validation
+         */
+
+        dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
+        List<String> updatedAcicityList = dashboardPage.addActivity("iTexico - Delivery", "Support to Operations", "7", "Selenium", "Updating ticket created");
+        dashboardPage.clickOnSelectedActivity(updatedAcicityList.get(0), updatedAcicityList.get(1));
+        dashboardPage.validateActivity("iTexico - Delivery", "Support to Operations", "7", "Selenium", "Updating ticket created");
+        dashboardPage.closeActivityModal();
+    }
+
     @Test(groups = {"Calendar_1"})
     public void getColsSizeOfCalendar(Method method) {
         ExtentTestManager.startTest(method.getName(), "Getting the cols size of calendar");

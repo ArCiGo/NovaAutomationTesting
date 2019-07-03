@@ -122,3 +122,7 @@ chromedriver
 
 # Surefire folder
 target/surefire-reports
+
+# Reporter and logs
+ExtentReportResults.html
+NovaAutomationTesting.log

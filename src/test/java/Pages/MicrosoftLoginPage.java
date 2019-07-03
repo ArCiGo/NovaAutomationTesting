@@ -13,7 +13,7 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
 
     private WebDriverWait wait;
     private String email = "armando.cifuentes@itexico.com";
-    private String password = "Intheend12";
+    private String password = "";
 
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);
@@ -31,7 +31,7 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
     @FindBy(id = "i0118")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")]")
+    @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")] | //input[@id='idSIButton9' and contains(@value, \"Iniciar sesión\")] ")
     private WebElement signInButton;
 
     @FindBy(xpath = "//input[@id='idBtn_Back']")
