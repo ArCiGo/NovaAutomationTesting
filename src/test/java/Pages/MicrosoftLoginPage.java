@@ -31,7 +31,7 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
     @FindBy(id = "i0118")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")] | //input[@id='idSIButton9' and contains(@value, \"Iniciar sesión\")] ")
+    @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")] | //input[@id='idSIButton9' and contains(@value, \"Iniciar sesión\")]")
     private WebElement signInButton;
 
     @FindBy(xpath = "//input[@id='idBtn_Back']")

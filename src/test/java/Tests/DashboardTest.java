@@ -16,6 +16,7 @@ import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -25,11 +26,21 @@ public class DashboardTest extends BaseTest {
 
     private DashboardPage dashboardPage;
 
-    String projectOptionValue = "iTexico - Talent Management",
-            categoryOptionValue = "Training & Development (not project related)",
-            hourValue = "8",
-            ticketValue = "Testing something amazing",
-            commentsValue = "Something amazing";
+    List<String> createActivityList = new ArrayList<String>() {{
+        add("iTexico - Talent Management");
+        add("Training & Development (not project related)");
+        add("8");
+        add("Testing something amazing");
+        add("Something amazing");
+    }};
+
+    List<String> updateActivityList = new ArrayList<String>() {{
+        add("iTexico - Delivery");
+        add("Support to Operations");
+        add("7");
+        add("Selenium");
+        add("Updating ticket created");
+    }};
 
     private void startLogin() {
         LoginPage loginPage = new LoginPage(driver);
@@ -48,10 +59,22 @@ public class DashboardTest extends BaseTest {
         assertTrue(dashboardPage.isDisplayed());
 
         dashboardPage.openActivityModal();
-        List<String> activityList = dashboardPage.addActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+        List<String> activityList = dashboardPage.fillActivity(
+                createActivityList.get(0),
+                createActivityList.get(1),
+                createActivityList.get(2),
+                createActivityList.get(3),
+                createActivityList.get(4)
+        );
 
         dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
-        dashboardPage.validateActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+        dashboardPage.validateActivity(
+                createActivityList.get(0),
+                createActivityList.get(1),
+                createActivityList.get(2),
+                createActivityList.get(3),
+                createActivityList.get(4)
+        );
         dashboardPage.closeActivityModal();
     }
 
@@ -63,24 +86,42 @@ public class DashboardTest extends BaseTest {
         assertTrue(dashboardPage.isDisplayed());
 
         // Creation of activity
-
         dashboardPage.openActivityModal();
-        List<String> activityList = dashboardPage.addActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+        List<String> activityList = dashboardPage.fillActivity(
+                createActivityList.get(0),
+                createActivityList.get(1),
+                createActivityList.get(2),
+                createActivityList.get(3),
+                createActivityList.get(4)
+        );
 
         dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
-        dashboardPage.validateActivity(projectOptionValue, categoryOptionValue, hourValue, ticketValue, commentsValue);
+        dashboardPage.validateActivity(
+                createActivityList.get(0),
+                createActivityList.get(1),
+                createActivityList.get(2),
+                createActivityList.get(3),
+                createActivityList.get(4)
+        );
         dashboardPage.closeActivityModal();
 
         // Update of activity created
-
-        /*
-        ToDO: Update addActivity() method to fillForm() and make it more generic removing the snackbar validation
-         */
-
         dashboardPage.clickOnSelectedActivity(activityList.get(0), activityList.get(1));
-        List<String> updatedAcicityList = dashboardPage.addActivity("iTexico - Delivery", "Support to Operations", "7", "Selenium", "Updating ticket created");
-        dashboardPage.clickOnSelectedActivity(updatedAcicityList.get(0), updatedAcicityList.get(1));
-        dashboardPage.validateActivity("iTexico - Delivery", "Support to Operations", "7", "Selenium", "Updating ticket created");
+        List<String> updatedActivityList = dashboardPage.fillActivity(
+                updateActivityList.get(0),
+                updateActivityList.get(1),
+                updateActivityList.get(2),
+                updateActivityList.get(3),
+                updateActivityList.get(4)
+        );
+        dashboardPage.clickOnSelectedActivity(updatedActivityList.get(0), updatedActivityList.get(1));
+        dashboardPage.validateActivity(
+                updateActivityList.get(0),
+                updateActivityList.get(1),
+                updateActivityList.get(2),
+                updateActivityList.get(3),
+                updateActivityList.get(4)
+        );
         dashboardPage.closeActivityModal();
     }
 

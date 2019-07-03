@@ -142,7 +142,7 @@ public class DashboardPage extends BaseApplicationPage {
         cancelButtonXPathLocator.click();
     }
 
-    public List<String> addActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
+    public List<String> fillActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
         List<String> activityValues = new ArrayList<String>();
         WebElement today = getTodayElement();
 
@@ -174,7 +174,12 @@ public class DashboardPage extends BaseApplicationPage {
         createButtonXPathLocator.click();
 
         wait.until(ExpectedConditions.visibilityOf(successfulSnackbarXPathLocator));
-        assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully created");
+
+        if(successfulSnackbarXPathLocator.getText().contains("created")) {
+            assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully created");
+        } else {
+            assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully updated");
+        }
 
         return activityValues;
     }
