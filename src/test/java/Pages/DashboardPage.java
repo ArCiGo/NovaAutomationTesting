@@ -85,6 +85,8 @@ public class DashboardPage extends BaseApplicationPage {
     @FindBy(xpath = "//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]")
     private List<WebElement> calendarBodyXPathLocator;
 
+    private String menuTicketOptionsDeleteXPathLocator = "//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]/div/div/descendant::div[contains(@class, 'dropdown')]/div[contains(@class, 'menu')]/div[2]/span";
+
     // Methods
 
     public boolean isDisplayed() {
@@ -209,7 +211,7 @@ public class DashboardPage extends BaseApplicationPage {
         todaySelectedActivity.click();
     }
 
-    public void clickOnSelectedActivityToDelete(String today, String ticketValue) {
+    public void clickOnSelectedActivityToDelete(String today, String ticketValue) throws InterruptedException {
         String day;
         int indexDateHeader = 0, indexTicketValue = 0;
 
@@ -230,9 +232,14 @@ public class DashboardPage extends BaseApplicationPage {
             }
         }
 
+        // WIP
         WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue).findElement(By.xpath("./descendant::div[contains(@class, 'dropdown')]"));
-        Log.info("El elemento es: " + todaySelectedActivity.getAttribute("role"));
-        //todaySelectedActivity.click();
+        todaySelectedActivity.click();
+        Log.info("Hizo click: " +todaySelectedActivity.getAttribute("role"));
+        WebElement deleteOption = getMenuTicketOptionsDelete(indexDateHeader, indexTicketValue);
+        //wait.until(ExpectedConditions.visibilityOf(deleteOption));
+        deleteOption.click();
+        Log.info("Al parecer si dio click "+ deleteOption.getAttribute("style"));
     }
 
     public void validateActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
@@ -267,5 +274,9 @@ public class DashboardPage extends BaseApplicationPage {
 
     private WebElement getTodayElement() {
         return driver.findElement(By.xpath(todayXPathLocator));
+    }
+
+    private WebElement getMenuTicketOptionsDelete(int indexDateHeader, int indexTicketValue) {
+        return driver.findElement(By.xpath("//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]["+indexDateHeader+"]/div/div["+indexTicketValue+"]/descendant::div[contains(@class, 'dropdown')]/div[contains(@class, 'menu')]/div[2]/span"));
     }
 }

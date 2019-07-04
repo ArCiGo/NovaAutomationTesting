@@ -126,7 +126,7 @@ public class DashboardTest extends BaseTest {
     }
 
     @Test(groups = {"Delete activity"})
-    public void deleteActivity(Method method) {
+    public void deleteActivity(Method method) throws InterruptedException {
         ExtentTestManager.startTest(method.getName(), "Delete an activity");
 
         startLogin();
