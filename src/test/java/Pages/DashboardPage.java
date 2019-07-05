@@ -1,10 +1,9 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Log;
@@ -84,8 +83,6 @@ public class DashboardPage extends BaseApplicationPage {
 
     @FindBy(xpath = "//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]")
     private List<WebElement> calendarBodyXPathLocator;
-
-    private String menuTicketOptionsDeleteXPathLocator = "//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]/div/div/descendant::div[contains(@class, 'dropdown')]/div[contains(@class, 'menu')]/div[2]/span";
 
     // Methods
 
@@ -232,14 +229,23 @@ public class DashboardPage extends BaseApplicationPage {
             }
         }
 
-        // WIP
         WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue).findElement(By.xpath("./descendant::div[contains(@class, 'dropdown')]"));
         todaySelectedActivity.click();
-        Log.info("Hizo click: " +todaySelectedActivity.getAttribute("role"));
-        WebElement deleteOption = getMenuTicketOptionsDelete(indexDateHeader, indexTicketValue);
-        //wait.until(ExpectedConditions.visibilityOf(deleteOption));
-        deleteOption.click();
-        Log.info("Al parecer si dio click "+ deleteOption.getAttribute("style"));
+
+        try {
+            todaySelectedActivity.findElement(By.xpath("./div[contains(@class, 'menu')]/div[2]")).click();
+
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (UnhandledAlertException e) {
+            Log.info("Algo pasó: "+e);
+        }
+
+        wait.until(ExpectedConditions.visibilityOf(successfulSnackbarXPathLocator));
+
+        if(successfulSnackbarXPathLocator.getText().contains("deleted")) {
+            assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully deleted");
+        }
     }
 
     public void validateActivity(String projectOptionValue, String categoryOptionValue, String hourValue, String ticketValue, String commentsValue) {
@@ -274,9 +280,5 @@ public class DashboardPage extends BaseApplicationPage {
 
     private WebElement getTodayElement() {
         return driver.findElement(By.xpath(todayXPathLocator));
-    }
-
-    private WebElement getMenuTicketOptionsDelete(int indexDateHeader, int indexTicketValue) {
-        return driver.findElement(By.xpath("//div[contains(@class,'ui seven column grid') and @gridmode]/descendant::div[contains(@class,'column')]["+indexDateHeader+"]/div/div["+indexTicketValue+"]/descendant::div[contains(@class, 'dropdown')]/div[contains(@class, 'menu')]/div[2]/span"));
     }
 }
