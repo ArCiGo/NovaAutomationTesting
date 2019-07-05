@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 public class MicrosoftLoginPage extends BaseApplicationPage {
 
     private WebDriverWait wait;
-    private String email = "armando.cifuentes@itexico.com";
+    private String email = "";
     private String password = "";
 
     public MicrosoftLoginPage(WebDriver driver) {
@@ -23,45 +23,45 @@ public class MicrosoftLoginPage extends BaseApplicationPage {
     // Elements
 
     @FindBy(name = "loginfmt")
-    private WebElement emailInput;
+    private WebElement emailInputNameLocator;
 
     @FindBy(xpath = "//input[@id='idSIButton9']")
-    private  WebElement nextButton;
+    private WebElement nextButtonXPathLocator;
 
     @FindBy(id = "i0118")
-    private WebElement passwordInput;
+    private WebElement passwordInputIdLocator;
 
     @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")] | //input[@id='idSIButton9' and contains(@value, \"Iniciar sesión\")]")
-    private WebElement signInButton;
+    private WebElement signInButtonXPathLocator;
 
     @FindBy(xpath = "//input[@id='idBtn_Back']")
-    private WebElement noButton;
+    private WebElement noButtonXPathLocator;
 
     // Methods
 
     public boolean isLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(nextButton));
+        wait.until(ExpectedConditions.visibilityOf(nextButtonXPathLocator));
 
         try {
-            return nextButton.isDisplayed();
+            return nextButtonXPathLocator.isDisplayed();
         } catch (Exception ex) {
             return false;
         }
     }
 
     public void fillForm() {
-        emailInput.clear();
-        emailInput.sendKeys(email);
-        nextButton.click();
+        emailInputNameLocator.clear();
+        emailInputNameLocator.sendKeys(email);
+        nextButtonXPathLocator.click();
 
-        wait.until(ExpectedConditions.visibilityOf(signInButton));
+        wait.until(ExpectedConditions.visibilityOf(signInButtonXPathLocator));
 
-        passwordInput.clear();
-        passwordInput.sendKeys(password);
-        signInButton.click();
+        passwordInputIdLocator.clear();
+        passwordInputIdLocator.sendKeys(password);
+        signInButtonXPathLocator.click();
 
-        wait.until(ExpectedConditions.visibilityOf(noButton));
+        wait.until(ExpectedConditions.visibilityOf(noButtonXPathLocator));
 
-        noButton.click();
+        noButtonXPathLocator.click();
     }
 }

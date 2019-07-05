@@ -16,11 +16,11 @@ import static org.testng.Assert.assertTrue;
 
 public class DashboardPage extends BaseApplicationPage {
 
+    private WebDriverWait wait = new WebDriverWait(driver, 5);
+
     public DashboardPage(WebDriver driver) {
         super(driver);
     }
-
-    private WebDriverWait wait = new WebDriverWait(driver, 5);
 
     // Elements
 
@@ -175,7 +175,7 @@ public class DashboardPage extends BaseApplicationPage {
 
         wait.until(ExpectedConditions.visibilityOf(successfulSnackbarXPathLocator));
 
-        if(successfulSnackbarXPathLocator.getText().contains("created")) {
+        if (successfulSnackbarXPathLocator.getText().contains("created")) {
             assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully created");
         } else {
             assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully updated");
@@ -220,7 +220,6 @@ public class DashboardPage extends BaseApplicationPage {
             }
         }
 
-        // clicking the three dots icon
         List<WebElement> todayColumnActivities = calendarBodyXPathLocator.get(indexDateHeader).findElements(By.xpath("./div/div"));
 
         for (int j = 0; j < todayColumnActivities.size(); j++) {
@@ -229,6 +228,7 @@ public class DashboardPage extends BaseApplicationPage {
             }
         }
 
+        // clicking the three dots icon
         WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue).findElement(By.xpath("./descendant::div[contains(@class, 'dropdown')]"));
         todaySelectedActivity.click();
 
@@ -238,12 +238,12 @@ public class DashboardPage extends BaseApplicationPage {
             Alert alert = driver.switchTo().alert();
             alert.accept();
         } catch (UnhandledAlertException e) {
-            Log.info("Algo pasó: "+e);
+            e.printStackTrace();
         }
 
         wait.until(ExpectedConditions.visibilityOf(successfulSnackbarXPathLocator));
 
-        if(successfulSnackbarXPathLocator.getText().contains("deleted")) {
+        if (successfulSnackbarXPathLocator.getText().contains("deleted")) {
             assertEquals(successfulSnackbarXPathLocator.getText(), "Activity successfully deleted");
         }
     }
