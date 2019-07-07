@@ -184,9 +184,10 @@ public class DashboardPage extends BaseApplicationPage {
         return activityValues;
     }
 
-    public void clickOnSelectedActivity(String today, String ticketValue) {
+    public WebElement getSelectedActivity(String today, String ticketValue) {
         String day;
         int indexDateHeader = 0, indexTicketValue = 0;
+        WebElement todaySelectedActivity;
 
         for (int i = 0; i < calendarHeaderXPathLocator.size(); i++) {
             day = calendarHeaderXPathLocator.get(i).findElement(By.xpath("./div/div")).getText();
@@ -204,32 +205,17 @@ public class DashboardPage extends BaseApplicationPage {
             }
         }
 
-        WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue);
+        return todaySelectedActivity = todayColumnActivities.get(indexTicketValue);
+    }
+
+    public void clickOnSelectedActivity(String today, String ticketValue) {
+        WebElement todaySelectedActivity = getSelectedActivity(today, ticketValue);
+
         todaySelectedActivity.click();
     }
 
     public void clickOnSelectedActivityToDelete(String today, String ticketValue) throws InterruptedException {
-        String day;
-        int indexDateHeader = 0, indexTicketValue = 0;
-
-        for (int i = 0; i < calendarHeaderXPathLocator.size(); i++) {
-            day = calendarHeaderXPathLocator.get(i).findElement(By.xpath("./div/div")).getText();
-
-            if (day.equals(today)) {
-                indexDateHeader = i;
-            }
-        }
-
-        List<WebElement> todayColumnActivities = calendarBodyXPathLocator.get(indexDateHeader).findElements(By.xpath("./div/div"));
-
-        for (int j = 0; j < todayColumnActivities.size(); j++) {
-            if (todayColumnActivities.get(j).findElement(By.xpath("./div/p/following-sibling::span[1]")).getText().equals(ticketValue)) {
-                indexTicketValue = j;
-            }
-        }
-
-        // clicking the three dots icon
-        WebElement todaySelectedActivity = todayColumnActivities.get(indexTicketValue).findElement(By.xpath("./descendant::div[contains(@class, 'dropdown')]"));
+        WebElement todaySelectedActivity =getSelectedActivity(today, ticketValue).findElement(By.xpath("./descendant::div[contains(@class, 'dropdown')]"));
         todaySelectedActivity.click();
 
         try {
