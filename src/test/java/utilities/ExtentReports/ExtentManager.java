@@ -1,6 +1,7 @@
 package utilities.ExtentReports;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import java.io.File;
 
 public class ExtentManager {
 
@@ -8,8 +9,7 @@ public class ExtentManager {
 
     public synchronized static ExtentReports getReporter() {
         if(extent == null) {
-            //extent = new ExtentReports("/Users/arcigo/Documents/Projects/ExtentReportResults.html", true);
-            extent = new ExtentReports(System.getProperty("user.dir")+ "\\ExtentReportResults.html", true);
+            extent = new ExtentReports(System.getProperty("user.dir") + File.separator + "ExtentReportResults.html", true);
         }
 
         return extent;
