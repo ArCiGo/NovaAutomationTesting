@@ -121,4 +121,8 @@ hs_err_pid*
 chromedriver
 
 # Surefire folder
-/target/surefire-reports
+target/surefire-reports
+
+# Reporter and logs
+ExtentReportResults.html
+NovaAutomationTesting.log

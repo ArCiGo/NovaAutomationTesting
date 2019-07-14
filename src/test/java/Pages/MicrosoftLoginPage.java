@@ -4,50 +4,64 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertTrue;
 
 public class MicrosoftLoginPage extends BaseApplicationPage {
 
+    private WebDriverWait wait;
+    private String email = "";
+    private String password = "";
+
     public MicrosoftLoginPage(WebDriver driver) {
         super(driver);
-        //PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, 5);
     }
 
     // Elements
 
     @FindBy(name = "loginfmt")
-    private WebElement emailInput;
+    private WebElement emailInputNameLocator;
 
     @FindBy(xpath = "//input[@id='idSIButton9']")
-    private  WebElement nextButton;
+    private WebElement nextButtonXPathLocator;
 
     @FindBy(id = "i0118")
-    private WebElement passwordInput;
+    private WebElement passwordInputIdLocator;
 
-    @FindBy(xpath = "//input[@id='idSIButton9']")
-    private WebElement signInButton;
+    @FindBy(xpath = "//input[@id='idSIButton9' and contains(@value, \"Sign in\")] | //input[@id='idSIButton9' and contains(@value, \"Iniciar sesión\")]")
+    private WebElement signInButtonXPathLocator;
 
     @FindBy(xpath = "//input[@id='idBtn_Back']")
-    private WebElement noButton;
+    private WebElement noButtonXPathLocator;
 
     // Methods
 
     public boolean isLoaded() {
-        boolean isLoaded = driver.getCurrentUrl().contains("microsoftonline")
-                ? true : false;
+        wait.until(ExpectedConditions.visibilityOf(nextButtonXPathLocator));
 
-        return isLoaded;
+        try {
+            return nextButtonXPathLocator.isDisplayed();
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
-    public void fillForm() throws Exception {
-        emailInput.clear();
-        emailInput.sendKeys("");
-        nextButton.click();
-        Thread.sleep(1000);
-        passwordInput.clear();
-        passwordInput.sendKeys("");
-        signInButton.click();
-        noButton.click();
+    public void fillForm() {
+        emailInputNameLocator.clear();
+        emailInputNameLocator.sendKeys(email);
+        nextButtonXPathLocator.click();
+
+        wait.until(ExpectedConditions.visibilityOf(signInButtonXPathLocator));
+
+        passwordInputIdLocator.clear();
+        passwordInputIdLocator.sendKeys(password);
+        signInButtonXPathLocator.click();
+
+        wait.until(ExpectedConditions.visibilityOf(noButtonXPathLocator));
+
+        noButtonXPathLocator.click();
     }
 }
